@@ -1,0 +1,189 @@
+@import './variables';
+
+.root {
+  display: flex;
+  flex-direction: column;
+  margin: 0 $grid-col-width $grid-col-width;
+  // margin-top: 27.3rem;
+  position: relative;
+
+  @media screen and (max-width: $breakpoint-medium) {
+    margin: 0 #{$grid-col-width / 2} $grid-col-width;
+  }
+
+  @media screen and (max-width: $breakpoint-small) {
+    // margin: 0 #{$grid-col-width / 2} $grid-col-width;
+    margin: 0;
+  }
+}
+
+.margins {
+  margin: 0 $grid-col-width;
+  @media screen and (max-width: $breakpoint-medium) {
+    margin: 0 #{$grid-col-width / 2};
+  }
+}
+
+// sk: please make this universal
+// .data-story-content {
+.story-content {
+  max-width: 116rem;
+  margin: 0 auto;
+  width: 100%;
+
+  &.commonMetricCards {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+
+.story-content.header {
+  // but not this... this is for the full bleed
+  position: relative;
+  background-color: $alt-bg;
+}
+
+.story-content.header:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -50vw;
+  width: 200vw;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none;
+  background: inherit;
+}
+
+.common-metrics-drawer-content {
+  display: flex;
+  padding: 0;
+
+  @media screen and (max-width: $breakpoint-medium) {
+    flex-direction: column;
+  }
+
+  @media screen and (max-width: $breakpoint-small) {
+    height: auto;
+  }
+
+  li {
+    display: block;
+  }
+}
+
+  .metrics-links {
+    width: 59.5%;
+    display: flex;
+    // flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    // max-height: 40rem;
+
+    @media screen and (max-width: $breakpoint-medium) {
+      width: 100%;
+    }
+    // @media screen and (max-width: $breakpoint-small) {
+    //   width: 100%;
+    // }
+  }
+
+  .metrics-cta {
+    width: 40.5%;
+
+    p {
+      line-height: 2.5rem;
+    }
+
+    @media screen and (max-width: $breakpoint-medium) {
+      width: 100%;
+    }
+
+    @media screen and (max-width: $breakpoint-small) {
+      display: none;
+    }
+  }
+
+  .metrics-wrapper {
+    margin-top: 0.9rem;
+    @media screen and (max-width: $breakpoint-medium) {
+      padding-left: 0;
+      padding-top: 4rem;
+    }
+
+    p {
+      font-size: 1.4rem;
+      margin-bottom: 2rem;
+    }
+
+    a {
+      display: flex;
+      font-family: 'Rubik';
+      font-size: 1.4rem;
+
+      &:hover {
+        svg {
+          path {
+            stroke: $active-blue;
+          }
+        }
+      }
+
+      svg {
+        path {
+          transition: stroke 0.3s ease-out;
+        }
+        margin-left: 1rem;
+      }
+    }
+  }
+
+
+.common-metrics-link-wrapper {
+  margin-right: 5rem;
+  width: calc(47% - 5rem);
+
+  .common-metrics-link {
+    margin: 1rem 0;
+  }
+
+  @media screen and (max-width: $breakpoint-medium) {
+    width: calc(50% - 5rem);
+  }
+
+  @media screen and (max-width: $breakpoint-small) {
+    margin-right: 0;
+    width: 100%;
+  }
+}
+
+.page-header-wrapper {
+  margin-bottom: 4rem;
+  padding: 5.6rem 0 3.6rem;
+  @media screen and (max-width: $breakpoint-small) {
+    margin-bottom: #{$grid-col-width / 2};
+    padding: 5rem 0 #{$grid-col-width / 2};
+  }
+}
+
+.common-metrics-header-wrapper {
+  margin: 0 0 3.6rem;
+
+  @media screen and (max-width: $breakpoint-medium) {
+    margin-top: 3rem;
+  }
+}
+
+.common-metrics-last-update-date {
+  width: 100%;
+  @media screen and (max-width: $breakpoint-small) {
+    margin-bottom: 1.5rem;
+  }
+
+  p {
+    font-family: 'Rubik';
+    font-size: 1.8rem;
+    line-height: 2.9rem;
+    float: right;
+  }
+}

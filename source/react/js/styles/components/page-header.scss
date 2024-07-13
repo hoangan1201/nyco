@@ -1,0 +1,79 @@
+@import '../variables';
+
+.root {
+  display: flex;
+
+  @media screen and (max-width: $breakpoint-medium) {
+    flex-direction: column;
+  }
+
+  .image {
+    flex: 0 0 16rem;
+    margin-right: 2.2rem;
+    @media screen and (max-width: $breakpoint-small) {
+      margin: 0 0 2rem;
+      flex: 0 0 8rem;
+      svg {
+        width: 8rem;
+      }
+    }
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    h1 {
+      // max-width: 46rem;
+      margin-bottom: 1rem;
+    }
+
+    .tagline {
+      p{
+        font-family: Lato;
+        font-size: 2.2rem;
+        line-height: 3.2rem;
+        margin-right: 10rem;
+
+        @media screen and (max-width: $breakpoint-large) {
+          margin-right: 0;
+        }
+
+        @media screen and (max-width: $breakpoint-small) {
+          font-size: 1.4rem;
+          line-height: 2rem;
+        }
+      }
+
+      a{
+        font-family: Lato;
+        font-size: 2.2rem;
+        line-height: 3.2rem;
+      }
+    }
+  }
+}
+
+html[dir="rtl"] {
+  .root {
+    .image {
+      margin-left: 2.2rem;
+      margin-right: 0;
+
+      @media screen and (max-width: $breakpoint-small) {
+        margin: 0 0 2rem 0;
+      }
+    }
+    .content {
+      .tagline {
+        margin-left: 10rem;
+        margin-right: 0;
+
+        @media screen and (max-width: $breakpoint-large) {
+          margin-left: 0;
+        }
+      }
+    }
+  }
+}

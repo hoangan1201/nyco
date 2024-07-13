@@ -1,0 +1,42 @@
+@import '../variables';
+
+.root {
+  a {
+    font-size: 1.4rem;
+    font-family: Lato;
+    font-weight: bold;
+    color: $link-blue;
+    transition: color 0.3s ease-out;
+
+    &:hover {
+      color: $active-blue;
+
+      .svg-wrapper {
+        svg g {
+          stroke: $active-blue;
+        }
+      }
+    }
+  }
+
+
+  .svg-wrapper {
+    margin-left: 0.5rem;
+    svg g {
+      transition: stroke 0.3s ease-out;
+    }
+  }
+}
+
+html[dir="rtl"] {
+  .root {
+    .svg-wrapper {
+      margin-left: 0;
+      margin-right: 0.5rem;
+
+      svg {
+        transform: scaleX(-1);
+      }
+    }
+  }
+}

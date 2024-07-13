@@ -1,0 +1,248 @@
+@import '../variables';
+@import '../keyframes';
+
+.root {
+  position: relative;
+  width: calc(100% + 4rem);
+  margin-left: -2rem;
+  margin-right: -2rem;
+
+  .background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: transparent;
+    z-index: 1;
+  }
+
+  .header {
+    width: 100%;
+    text-align: left;
+    transition: color 0.3s ease-out;
+
+    .title {
+
+    }
+
+    .headerBtn {
+      transition: color 0.3s ease-out;
+    }
+
+    &.open {
+      .headerBtn {
+        color: #C9EEFE;
+        box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.2);
+        background: $main-card-bg;
+      }
+
+      svg {
+        transform: rotate(180deg);
+      }
+    }
+
+    svg path {
+      transition: stroke 0.3s ease-out;
+    }
+
+    &:focus {
+      outline: 2px dotted #C9EEFE;
+      outline-offset: 3px;
+    }
+
+    svg {
+      transition: stroke 0.45s ease-out;
+    }
+
+    &:hover {
+      color: $active-blue;
+
+      .headerBtn {
+        color: $active-blue;
+      }
+
+      svg path {
+        stroke: $active-blue;
+      }
+    }
+  }
+
+  .dropdown {
+    position: absolute;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    min-width: 38rem;
+    z-index: 2;
+    top: 100%;
+    width: 100%;
+    animation: bounceDropdown 400ms ease-in-out forwards;
+    transform-origin: top center;
+
+    // for program-filtering
+    &.programs {
+      max-width: 60rem;
+    }
+
+    ul {
+      list-style: none;
+      background: $alt-bg;
+      width: 100%;
+      padding: 1rem 0;
+
+
+      &:first-child {
+        max-height: 44rem;
+        overflow-y: auto;
+
+        // for program-filtering
+        &.programs {
+          display: flex;
+          justify-content: space-between;
+          flex-wrap: wrap;
+          width: calc(100% - 4rem);
+          padding: 1rem 2rem;
+          max-height: 62.6rem;
+        }
+      }
+
+      &::-webkit-scrollbar {
+        width: 8px;
+      }
+     
+      &::-webkit-scrollbar-thumb {
+        background: $link-blue;
+      }
+    }
+
+    li {
+      &.agencyList {
+        margin: 0;
+
+        // for program-filtering
+        &.programs {
+          width: 20rem;
+        }
+      }
+
+      // for program-filtering
+      .filterHeading {
+        font-family: 'Montserrat';
+        font-size: 1.4rem;
+        font-weight: bold;
+        padding: 0 2rem;
+      }
+    }
+
+    &.open {
+      display: flex;
+    }
+
+    .nested {
+      padding: 0;
+      margin-left: 3.2rem;
+      width: calc(100% - 3.2rem);
+    }
+  }
+
+  .headerBtn,
+  .agencyBtn,
+  .programBtn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+    color: $link-blue;
+    font-weight: normal;
+    font-size: 1.4rem;
+    line-height: 2rem;
+    cursor: pointer;
+    // transition: background-color 0.45s ease-out;
+    min-width: 20rem;
+    background: none;
+    text-align: left;
+    background-color: transparent;
+    padding: 0.5rem 2rem;
+    width: 100%;
+    z-index: 0;
+
+    position: relative;
+    touch-action: manipulation;
+    cursor: pointer;
+    // border: 0.1rem solid rgba(0, 0, 0, 0);
+    white-space: nowrap;
+    // line-height: 1.2;
+    // border-width: 0.1rem;
+    // font-size: 1.6rem;
+    // padding: 1rem 2rem;
+    // text-transform: uppercase;
+    text-align: left;
+
+    // width: calc(100% - 4.2rem);
+
+    background: none;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    &.selected {
+      color: $active-blue;
+    }
+  }
+
+  .headerBtn {
+    font-size: 2.4rem;
+    line-height: 3.2rem;
+    padding: 1.65rem 2rem;
+
+    // for program-filtering
+    &.programs {
+      padding: 1.4rem 4rem;
+    }
+
+    @media screen and (max-width: $breakpoint-small) {
+      font-size: 1.8rem;
+      line-height: 2.4rem;
+    }
+
+    .icon-wrapper {
+      display: inline-block;
+      margin-left: 1rem;
+      position: relative;
+      top: -0.2rem;
+      @media screen and (max-width: $breakpoint-small) {
+        top: 0;
+      }
+    }
+
+    &.left {
+      justify-content: flex-start;
+    }
+  }
+
+  .agencyBtn {
+    font-weight: bold;
+  }
+
+  .programBtn {
+    font-family: Lato;
+  }
+
+}
+
+html[dir="rtl"] {
+  .root {
+    .dropdown {
+      .nested {
+        margin-left: 0;
+        margin-right: 3.2rem;
+        // width: calc(100% - 3.2rem);
+      }
+    }
+    .programBtn,
+    .agencyBtn {
+      text-align: right;
+    }
+  }
+}

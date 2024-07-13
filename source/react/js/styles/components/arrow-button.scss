@@ -1,0 +1,95 @@
+@import '../variables';
+
+.root {
+  display: flex;
+  position: relative;
+  // button {
+    font-family: 'Rubik';
+    font-weight: bold;
+    // padding: 1rem;
+    box-sizing: border-box;
+    color: $link-blue;
+    // this needs to be dynamic
+    font-size: 1.8rem;
+    line-height: 1;
+    cursor: pointer;
+    transition: background-color 0.45s ease-out;
+    min-width: 20rem;
+    background: none;
+    background-color: transparent;
+    text-align: left;
+    transition: color $transition;
+
+    @media screen and (max-width: $breakpoint-small) {
+      font-size: 1.4rem;
+    }
+
+    &.small {
+      font-size: 1.4rem;
+    }
+  // }
+  .svgWrapper {
+    margin-left: 0.5rem;
+  }
+
+  svg g {
+    transition: stroke $transition;
+  }
+
+  .labelWrapper {
+    &.preLine {
+      &:before {
+        content: '';
+        position: absolute;
+        height: 0.2rem;
+        background-color: $link-blue;
+        top: 0.9rem;
+        width: 12rem;
+        right: 100%;
+        margin-right: 2rem;
+        transition: background-color $transition;
+      }
+    }
+  }
+
+  &:hover {
+    color: $active-blue;
+
+    .labelWrapper {
+      &.preLine {
+        &:before {
+          background-color: $active-blue;
+        }
+      }
+    }
+
+    svg g {
+      stroke: $active-blue;
+    }
+  }
+}
+
+// .svg-wrapper,
+// .label-wrapper {
+//   margin: 0 0.1rem;
+// }
+//
+// .svg-wrapper {
+//   display: flex;
+//   align-items: center;
+// }
+
+html[dir="rtl"] {
+  .root {
+    .labelWrapper {
+      &.preLine {
+        &:before {
+          right: auto;
+          left: 100%;
+          margin-right: 0;
+          margin-left: 2rem;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,15 @@
+@import './variables';
+
+.root {
+  margin: 0 6rem 11rem;
+
+  @media screen and (max-width: $breakpoint-small) {
+    margin: 0 3rem 4rem;
+  }
+
+  .content {
+    width: 100%;
+    max-width: 128rem;
+    margin: 0 auto;
+  }
+}

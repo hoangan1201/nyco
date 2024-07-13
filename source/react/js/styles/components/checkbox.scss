@@ -1,0 +1,86 @@
+@import '../variables';
+
+.root {
+  display: block;
+  position: relative;
+  cursor: pointer;
+  user-select: none;
+  padding: 0.5rem 0 0.5rem 3rem;
+  box-sizing: border-box;
+  line-height: 2rem;
+  width: 100%;
+  max-width: 32.8rem;
+  white-space: pre-wrap;
+  color: $link-blue;
+
+  &.checked {
+    color: $active-blue;
+  }
+  &.indeterminate {
+    color: $active-blue;
+
+    input {
+      & ~ .indicator {
+        border-color: $active-blue;
+
+        & .icon-wrapper {
+          height: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+      }
+    }
+  }
+
+  &.disabled {
+    opacity: 0.5;
+  }
+
+  &:focus {
+    outline: 2px dotted $active-blue;
+    outline-offset: 3px;
+  }
+}
+
+input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+
+  &:checked {
+    & ~ .indicator {
+      border-color: $active-blue;
+
+      & .icon-wrapper {
+        display: flex;
+      }
+    }
+  }
+}
+
+.indicator {
+  position: absolute;
+  left: 0;
+  right: 0;
+  // top: 0.9rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1.3rem;
+  height: 1.3rem;
+  border: solid 0.1rem $link-blue;
+  display: inline-block;
+  pointer-events: none;
+}
+
+.icon-wrapper {
+  display: none;
+  // transform: translateY(-0.2rem);
+}
+
+html[dir="rtl"] {
+  .root {
+    padding: 0.5rem 3rem 0.5rem 0;
+  }
+}

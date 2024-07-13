@@ -1,0 +1,26 @@
+@import '../../opportunity-standard-variables.scss';
+
+.input {
+  width: 100%;
+  border: 1px solid #ccc;
+  padding: 2.3rem 2rem;
+  line-height: 1;
+  box-sizing: border-box;
+  outline: none;
+  height: 40px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-family: 'Public Sans', sans-serif;
+  font-size: 16px;
+  &::placeholder {
+    color: $scale-default-2;
+  }
+
+  &:focus {
+    outline: 2px solid $blue-light-2;
+  }
+
+  &.hasRadius {
+    border-radius: 5px;
+  }
+}

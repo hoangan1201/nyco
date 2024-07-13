@@ -1,0 +1,14 @@
+@import '../variables';
+
+.siteLoader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: $alt-bg;
+  z-index: 20000;
+
+  display: flex;
+  justify-content: center;
+}

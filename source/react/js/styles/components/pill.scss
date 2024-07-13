@@ -1,0 +1,74 @@
+@import '../variables';
+@import '../keyframes';
+
+.root {
+  display: inline-block;
+  margin: 0.5rem;
+  opacity: 0;
+  animation: fadeIn 0.4s ease-in forwards;
+
+  .pill {
+    background: $active-blue;
+    display: inline-block;
+    padding: 5px 12px;
+    border-radius: 20px;
+    color: $main-bg;
+    cursor: pointer;
+    font-weight: bold;
+
+    &:hover {
+      background: $link-blue;
+    }
+  }
+
+  .content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .text {
+    margin-right: 1.3rem;
+    padding-left: 2px;
+    padding-top: 1px;
+  }
+
+  .circle {
+    background: $main-bg;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    transform: rotate(45deg) scale(0.6);
+  }
+
+  .close {
+    width: 15px;
+    height: 15px;
+    position: relative;
+    display: inline-block;
+    border-radius: 50%;
+    transform: translate(-50%, -50%) scale(0.7);
+    margin-top: 50%;
+    margin-left: 50%;
+
+    &:before, &:after {
+      content: "";
+      position: absolute;
+      background: $white;
+    }
+    
+    &:before {
+      left: 50%;
+      width: 20%;
+      margin-left: -10%;
+      height: 100%;
+    }
+    
+    &:after {
+      top: 50%;
+      height: 20%;
+      margin-top: -10%;
+      width: 100%;
+    }
+  }
+}

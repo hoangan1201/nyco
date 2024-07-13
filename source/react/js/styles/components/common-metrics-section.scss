@@ -1,0 +1,122 @@
+@import '../variables';
+
+.root {
+  z-index: 1;
+  background-color: $main-bg;
+
+  .margins {
+    margin: 0 $grid-col-width;
+    @media screen and (max-width: $breakpoint-small) {
+      margin: 0 #{$grid-col-width / 2};
+    }
+  }
+
+  .content {
+    width: 100%;
+    // max-width: 140rem;
+    max-width: 128rem;
+    margin: 0 auto;
+  }
+
+  .color-bars {
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    overflow-x: hidden;
+
+    @media screen and (max-width: $breakpoint-small) {
+      width: calc(100% + 6rem);
+      margin: 0 -3rem;
+    }
+
+    &:first-child {
+      margin-top: -10rem;
+
+      @media screen and (max-width: $breakpoint-small) {
+        margin-top: -5rem;
+      }
+    }
+
+    .row {
+      display: flex;
+      &.offset-1 {
+        margin-left: 17rem;
+      }
+
+      &.offset-2 {
+        margin-left: 22rem;
+      }
+
+      &.offset-3 {
+        margin-left: 6rem;
+      }
+    }
+  }
+
+  .metrics-header {
+    display: flex;
+    margin: 10rem $grid-col-width;
+    @media screen and (max-width: $breakpoint-small) {
+      flex-direction: column;
+      // margin: 5rem #{$grid-col-width / 2};
+      margin: 5rem 0;
+
+      > svg {
+        width: 8rem;
+        margin-bottom: 2rem;
+      }
+    }
+  }
+
+  .metrics-header-title-wrapper {
+    width: 100%;
+    max-width: 66rem;
+    margin-left: 10rem;
+    @media screen and (max-width: $breakpoint-small) {
+      margin-left: 0;
+    }
+  }
+
+  .commonMetricsNavLinkWrapper {
+    margin: 2rem 6rem;
+
+    @media screen and (max-width: $breakpoint-small) {
+      margin: 2rem 0;
+    }
+
+    a {
+      font-family: 'Montserrat';
+      font-weight: bold;
+      font-size: 1.8rem;
+      line-height: 1;
+
+      @media screen and (max-width: $breakpoint-small) {
+        font-size: 1.4rem;
+      }
+
+      svg g {
+        transition: stroke $transition;
+      }
+
+      &:hover svg g {
+        stroke: $active-blue;
+      }
+    }
+
+    .iconWrapper {
+      margin-left: 0.5rem;
+    }
+  }
+}
+
+html[dir="rtl"] {
+  .root {
+    .metrics-header-title-wrapper {
+      margin-left: 0;
+      margin-right: 10rem;
+      @media screen and (max-width: $breakpoint-small) {
+        margin-right: 0;
+      }
+    }
+  }
+}

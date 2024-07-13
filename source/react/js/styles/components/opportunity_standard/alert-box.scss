@@ -1,0 +1,32 @@
+@import '../../opportunity-standard-variables';
+
+.alert {
+  display: block;
+  background: white;
+  color: $scale-default-2;
+  padding: 2rem;
+  display: flex;
+  margin-top: 2rem;
+  align-items: center;
+  font-family: 'Lato', sans-serif;
+
+  .iconContainer {
+    display: flex;
+    margin-right: 1.5rem;
+  }
+
+  .infoContainer {
+    flex: 1;
+    font-size: 14px;
+    margin-top: 0 !important;
+    line-height: 2.2rem;
+    padding-right: 5rem;
+  }
+
+  &.danger {
+    background-color: $red-light-2;
+  }
+  &.success {
+    background-color: $green-light-2;
+  }
+}

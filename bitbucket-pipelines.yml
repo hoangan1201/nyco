@@ -1,0 +1,30 @@
+image: node:10.15.3
+pipelines:
+  branches:
+    master:
+      - step:
+          name: build docker image
+          caches:
+            - docker
+          services:
+            - docker
+          script: # Modify the commands below to build your repository.
+            # Set $DOCKER_HUB_USERNAME and $DOCKER_HUB_PASSWORD as environment variables in repository settings
+            - export WDB_IMAGE_NAME=workforcedataportal/web-app:$BITBUCKET_COMMIT
+            - export ENV_TAG=staging
+            # build the Docker image (this will use the Dockerfile in the root of the repo)
+            - docker build -t $WDB_IMAGE_NAME -t workforcedataportal/web-app:$ENV_TAG -f ./Dockerfile .
+              #- >-
+              #docker run -e "ENVIRONMENT=$ENV_TAG"
+              #-e "ANSIBLE_VAULT_PASS=$ANSIBLE_VAULT_PASS"
+              #index.docker.io/blenderboxwebsite/blenderbox2020-web:$ENV_TAG
+              #"gatsby build && npm run deploy"
+            # authenticate with the Docker Hub registry
+            - docker login --username $DOCKER_HUB_USERNAME --password "$DOCKER_HUB_PASSWORD" docker.io
+            # push the new Docker image to the Docker registry
+            - docker push $WDB_IMAGE_NAME
+            - docker push workforcedataportal/web-app:$ENV_TAG
+definitions:
+  services:
+    docker:
+      memory: 3071

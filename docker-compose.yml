@@ -1,0 +1,59 @@
+version: "2"
+
+services:
+  db:
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: bboxlocaldevpg
+    image: postgis/postgis:16-3.4
+    restart: always
+    volumes:
+      - postgresdata:/var/lib/postgresql/data
+
+  react:
+    build: ./source
+    working_dir: "/app/source"
+    command: /entrypoint.sh
+    stdin_open: true
+    tty: true
+    environment:
+      ENVIRONMENT: local # use the .env/local.env file
+      ENVIRONMENT_UNENCRYPTED: 1
+      CHOKIDAR_USEPOLLING: true
+    volumes:
+      - .:/app/node_modules
+      - .:/app:cached
+      - ./.env:/.env
+    ports:
+      - "3000:3000"
+      - "9001:9001"
+      - "35729:35729"
+
+  redis:
+    image: "redis:alpine"
+
+  app:
+    build: .
+    working_dir: "/app/source"
+    command: python /app/source/manage.py runserver_plus 0.0.0.0:8000
+    depends_on:
+      - db
+    environment:
+      # These set to assist with initial DB creation
+      ENVIRONMENT: local
+      ENVIRONMENT_UNECRYPTED: 1
+      DATABASE_ENGINE: django.db.backends.postgresql_psycopg2
+      DATABASE_HOST: db
+      DATABASE_USER: postgres
+      DATABASE_PASSWORD: bboxlocaldevpg
+      DATABASE_NAME: wdp
+      DATABASE_PORT: 5432
+    stdin_open: true
+    tty: true
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+
+volumes:
+  postgresdata:

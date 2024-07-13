@@ -1,0 +1,53 @@
+@import '../../opportunity-standard-variables';
+
+.pill {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.9rem 1.8rem;
+  border-radius: 10px;
+  font-family: 'Public Sans', sans-serif;
+  font-size: 14px;
+  background: transparent;
+  border: 1px solid transparent;
+  font-weight: 700;
+  margin-bottom: 2.5rem;
+
+  .label {
+    flex: 1;
+  }
+
+  .iconContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: .8rem;
+  }
+
+  &.clickable {
+    cursor: pointer;
+  }
+}
+
+.pill, .pill.light {
+  color: white;
+  border-color: white;
+
+  svg g, svg g path {
+    stroke: white;
+  }
+
+  &.active {
+    background: $scale-light-3;
+    color: $scale-default-0;
+
+    svg g, svg g path {
+      stroke: $scale-default-0;
+    }
+  }
+}
+
+.pill.dark {
+  background: $unmatched-1;
+  border: 2px solid $unmatched-2;
+}

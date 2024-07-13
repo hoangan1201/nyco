@@ -1,0 +1,46 @@
+$white: #FFFFFF;
+$off-white: #F8F9FB;
+$black: #000000;
+$off-black: #031837;
+
+$main-bg: #031837;
+$alt-bg: #071F42;
+$footer-bg: #061E41;
+$main-card-bg: #0C264D;
+$support-blue: #003C7A;
+$link-blue: #3194E0;
+$active-blue: #C9EEFE;
+$alt-link-blue: #1E78BE;
+$light-blue: #68B7F4;
+$green-1: #006333;
+$green-2: #008E46;
+$green-3: #4BAC4C;
+$green-4: #A8DD7C;
+$yellow-1: #FFD029;
+$yellow-2: #FAD457;
+$yellow-3: #F6D772;
+$yellow-4: #FDE9A6;
+$yellow-5: #FFDF8D;
+$red-1: #fd8e8e;
+
+$transition: 0.3s ease-out;
+
+$grid-cols: 12;
+$grid-col-width: 6rem;
+$grid-gutter-width: 4rem;
+
+// these are hardcoded here but not used dynamically until I can figure out how to use these in JSX
+// thus, just a list
+$z-index-header: 10000;
+$z-index-modal-bg: 10001;
+$z-index-jump-nav: 10002;
+$z-index-opportunity: 9999;
+
+$box-shadow: 0 0.2rem 1rem 0 rgba(0,0,0,0.20);
+
+$breakpoint-small: 499px;
+$breakpoint-medium: 999px;
+$breakpoint-large: 1160px;
+$breakpoint-xlarge: 1399px;
+
+$breakpoint-common-metrics-controls: 1383px;

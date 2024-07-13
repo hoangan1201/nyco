@@ -1,0 +1,5 @@
+* text eol=lf
+*.sh text eol=lf
+*.png binary
+*.jpg binary
+terraform-provider-ansiblevault_v2.0.1_x4 binary

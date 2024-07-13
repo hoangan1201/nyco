@@ -1,0 +1,84 @@
+@import '../../opportunity-standard-variables';
+
+.button {
+  display: flex;
+  align-items: center;
+  padding: 1.3rem 2.3rem;
+  font-family: 'Public Sans', sans-serif;
+  font-weight: 700;
+  font-size: $controls-font-size;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 3rem;
+  min-height: 40px;
+  transition: background .3s, color .3s, opacity .3s;
+
+  .iconContainer {
+    margin-top: 3px;
+
+    &.left {
+      margin-right: 1rem;
+    }
+  
+    &.right {
+      margin-left: 1rem;
+    }
+  }
+
+  &:disabled {
+    cursor: default;
+  }
+
+  &.loading {
+    opacity: 0.5;
+  }
+
+  &.block {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  &:focus {
+    outline: 2px solid $blue-light-2;
+  }
+
+  &.hasIcon {
+    padding-top: 1.2rem;
+    padding-bottom: 1.2rem;
+  }
+
+  @media screen and (max-width: $breakpoint-mobile) {
+    font-size: calc($controls-font-size - 2px);
+
+    &.blockOnMobile {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+}
+
+.button.dark {
+  background: $scale-default-2;
+  color: $scale-light-4;
+  svg g path, svg g {
+    stroke: $scale-light-4;
+  }
+  // &:disabled {
+  //   background: mix(gray, $scale-default-2, 40%);
+  // }
+}
+
+.button.whiteContent {
+  color: white;
+  svg g path, svg g {
+    stroke: white;
+  }
+}
+
+.button, .button.light {
+  background: $scale-light-3;
+  color: $scale-default-0;
+  svg g path, svg g {
+    stroke: $scale-default-0;;
+  }
+}

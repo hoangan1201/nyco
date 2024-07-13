@@ -1,0 +1,446 @@
+@import './variables';
+@import './opportunity-standard-variables.scss';
+
+.subscribe {
+  background-color: #031837;
+  width: 100%;
+
+  /* The Modal (background) */
+  .modal {
+    position: inherit;
+    /* Stay in place */
+    z-index: 1;
+    /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    label,
+    legend {
+      font-size: 18px;
+      line-height: 28px;
+      max-width: 960px;
+      margin-bottom: 0;
+    }
+  }
+
+  .buttonFieldContainer {
+    align-items: center;
+    display: flex;
+    position: relative;
+
+    button {
+      position: absolute;
+      right: 10px;
+    }
+  }
+
+  .submitButton {
+    position: relative;
+  }
+
+  .subscribeForm {
+    display: flex;
+    flex-direction: column;
+    font-size: 12px;
+    margin: auto;
+    width: 85vh;
+    background-color: #0C264D;
+    padding: 3rem 18rem 3rem 18rem;
+
+    &.hasBottomMargin {
+      margin-bottom: 6rem;
+    }
+
+    &.hasTransparentBackground {
+      background-color: transparent;
+    }
+
+    .formFieldContainer {
+      transition: all .3s;
+
+      &.error {
+        border-left: 3px solid $yellow-5;
+        padding-left: 1rem;
+        margin-top: 1.5rem;
+      }
+
+      .errorLabel {
+        color: $yellow-5;
+        margin-bottom: 1rem;
+        font-family: 'Rubik', sans-serif;
+        font-size: 13px;
+
+        &.condensed {
+          margin-bottom: .3rem;
+        }
+      }
+    }
+
+    span {
+      display: flex;
+      margin-top: inherit;
+    }
+
+    @media screen and (max-width: $breakpoint-tablet) {
+      padding: 3rem 38px;
+      margin: auto;
+      width: auto;
+      display: flex;
+    }
+
+    @media screen and (max-width: 580px) {
+      // Button starts overflowing before $breakpoint-mobile
+      padding-bottom: 8rem;
+
+      .buttonFieldContainer button {
+        top: 7rem;
+        background: $scale-default-4;
+        color: $scale-light-0;
+        right: 0;
+        width: 100%;
+        justify-content: center;
+
+        svg g path,
+        svg g {
+          stroke: $scale-light-0 !important;
+        }
+
+        &:focus {
+          outline-color: white !important;
+        }
+      }
+    }
+
+    .subscribeFormInner {
+      margin-top: 2rem;
+
+      input[type="text"],
+      input[type="email"] {
+        margin: 0;
+      }
+
+      label:not(.radioSelect label),
+      legend:not(.radioSelect legend) {
+        font-family: 'Rubik', sans-serif;
+        font-weight: bold;
+        font-size: 16px;
+        margin-bottom: 0.8rem;
+        display: block;
+      }
+    }
+
+    .buttonFieldContainer {
+      button {
+        margin: 0;
+        padding: 0.7rem 1.4rem;
+      }
+    }
+
+    @media screen and (max-width: $breakpoint-mobile),
+    print {
+      padding: 6rem 6rem 6rem 4.5rem;
+      margin: 0;
+      display: flex;
+      align-items: center;
+    }
+
+    h2 {
+      color: $scale-light-0;
+      font-size: 36px;
+      font-weight: 700;
+      line-height: 46px;
+      margin-bottom: 7px;
+    }
+
+    form {
+      position: relative;
+      margin-bottom: 26px;
+      margin-top: 6px;
+    }
+
+    p {
+      // font-family: 'Rubik', sans-serif; // All other <p>'s are Lato or Public Sans
+      margin-top: 0.5rem;
+      margin-bottom: 1.5rem;
+      font-size: 17px;
+      line-height: 28px;
+      max-width: 960px;
+    }
+
+    input:focus {
+      outline: 2px solid $active-blue !important;
+      outline-offset: 2px !important;
+    }
+
+    @media screen and (min-width: 580px) {
+      .buttonFieldContainer button:focus {
+        outline: 2px solid $main-card-bg !important;
+        outline-offset: 1px !important;
+      }
+    }
+  }
+}
+
+
+footer {
+  color: #080707;
+  background-color: white;
+  word-wrap: break-word;
+  z-index: 10;
+  font-family: 'Rubik', sans-serif;
+
+  .service_footer,
+  .global_footer {
+    width: 100%;
+    height: 100%;
+    display: inline-flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    padding: 40px 64px 40px 64px;
+    box-shadow: '0px -2px 16px rgba(0, 0, 0, 0.06)';
+    gap: 24px;
+  }
+
+  .service_footer {
+    background-color: white;
+
+    @media screen and (min-width: $breakpoint-tablet) {
+      .divider {
+        display: none;
+      }
+    }
+  } 
+
+  .global_footer {
+    background-color: #F8F9FB;
+  }
+
+  .main_links {
+    align-self: stretch;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 64px;
+    display: inline-flex;
+  }
+
+  .feedback {
+    display: inline-flex;
+    flex-direction: column;
+    flex: 1 1 0;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .feedback_title {
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+
+  .feedback span {
+    font-weight: 400;
+    font-size: 17px;
+  }
+
+  .feedback button {
+    background-color: #071935;
+    border: none;
+    border-radius: 4px;
+    text-align: center;
+    cursor: pointer;
+    color: white;
+    font-size: 20px;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+    align-self: center;
+    padding: 16px 24px;
+    gap: 4px;
+  }
+
+  .links {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    gap: 40px;
+    padding-right: 80px;
+  }
+
+  .first_col,
+  .second_col {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 4px;
+    width: 200px;
+    padding: 4px;
+    font-family: 'Rubik', sans-serif;
+    font-weight: bold;
+    font-size: 16px;
+  }
+
+  .nav_item {
+    margin-bottom: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #080707;
+    font-family: 'Rubik', sans-serif;
+    font-weight: bold;
+    font-size: 16px;
+
+    &:hover {
+      color: $blue-light-2; /* Changes the color on hover */
+      text-decoration: underline; /* Adds underline on hover */
+    }
+  }
+
+  /* Mobile Styles */
+  @media screen and (max-width: $breakpoint-mobile) {
+    .service_footer, .global_footer {
+      height: auto;
+      padding: 20px;
+      gap: 16px;
+    }
+
+    .main_links {
+      width: 100%;
+      gap: 18px;
+      flex-direction: column;
+    }
+
+    .feedback {
+      width: 100%;
+      gap: 12px;
+    }
+
+    .feedback_title {
+      font-size: 18px;
+      margin-bottom: 8px;
+    }
+
+    .feedback span {
+      font-size: 14px;
+    }
+
+    .feedback button {
+      width: 100%;
+      font-size: 15px;
+      padding: 8px 16px 8px 16px;
+    }
+
+    .links {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .first_col, 
+    .second_col {
+      width: 90%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+      gap: 8px;
+    }
+
+    .nav_item {
+      margin-bottom: 8px;
+      font-size: 12px;
+    }
+
+    .main_links {
+      flex-direction: column;
+    }
+
+    .links {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
+    .first_col, 
+    .second_col {
+      flex: 1;
+    }
+  }
+
+  /* Tablet Styles */
+  @media screen and (min-width: $breakpoint-mobile) and (max-width: $breakpoint-tablet) {
+    .service_footer .main_links{
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .service_footer {
+      .feedback {
+        flex-direction: row;
+        justify-content: space-between;
+        width: 80%;
+        align-items: flex-start;
+      }
+      
+      .links {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 50px;
+      }
+
+      .first_col, 
+      .second_col {
+        min-width: 200px;
+      }
+    }
+    
+    .global_footer {
+      .main_links {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 50px;
+      }
+
+      .feedback,
+      .first_col, 
+      .second_col {
+        min-width: 200px;
+      }
+    }
+
+    .feedback_title {
+      margin-right: 20px;
+    }
+
+    .first_col, 
+    .second_col {
+      flex-direction: column;
+      width: auto;
+      gap: 8px;
+    }
+
+    .nav_item {
+      margin-bottom: 8px;
+      font-size: 14px;
+    }
+  }
+
+  .divider {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+    background: #ADB2B9;
+    height: 100%;
+    width: 90%;
+    align-self: stretch;
+  }
+
+  .copyright_mark {
+    font-family: 'Rubik', serif;
+    font-size: 1.2rem;
+    align-self: stretch;
+  }
+}

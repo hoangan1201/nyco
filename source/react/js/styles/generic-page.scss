@@ -1,0 +1,175 @@
+@import './variables';
+@import './opportunity-standard-variables.scss';
+
+.root {
+  font-family: 'Rubik', sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: white;
+}
+
+
+.title_container {
+  border: none;
+  border: none;
+  box-shadow: none;
+  outline: none;
+  color: $white;
+  background-color: $main-bg;
+  padding: 0px 400px 56px 104px;
+
+  .title {
+    padding-bottom: 24px;
+    font-size: 55px;
+  }
+
+  .subtitle {
+    font-size: 21px;
+    font-weight: 400;
+  }
+
+
+  @media screen and (max-width: $breakpoint-mobile) {
+    padding: 0px 16px 40px 16px;
+
+    .title {
+      padding-bottom: 16px;
+      font-size: 40px;
+    }
+
+
+    .subtitle {
+      font-size: 16px;
+    }
+  }
+}
+
+.content_container {
+  display: flex;
+
+  @media screen and (max-width: $breakpoint-mobile) {
+    display: block; // Change the display to block to stack children vertically
+  }
+
+}
+
+.right {
+  width: 525px;
+  position: relative;
+
+  @media screen and (max-width: $breakpoint-mobile) {
+    width: 100%;
+    position: static;
+  }
+}
+
+.generic_content {
+  padding: 40px 75px 64px 104px;
+}
+
+.about_content {
+  padding: 40px 400px 64px 104px;
+
+}
+
+.left {
+  flex: 1;
+  background-color: white;
+  color: black;
+
+  .section_title {
+    color: $main-bg;
+    padding-top: 16px;
+  }
+
+  .section_content {
+    font-size: 20px;
+
+    .a {
+      color: black;
+      font-weight: 400;
+    }
+  }
+
+  :last-child {
+    padding-bottom: 1px;
+  }
+
+  h2,
+  h3,
+  h4,
+  h5,
+  p {
+    margin-bottom: 2rem;
+  }
+
+  @media screen and (max-width: $breakpoint-mobile) {
+    padding: 40px 32px 40px 20px;
+
+    .section_title {
+      padding-top: 10px;
+    }
+
+    .section_content {
+      font-size: 18px;
+    }
+
+  }
+}
+
+.divider {
+  margin-top: 10px;
+  margin-bottom: 16px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+  background: #ADB2B9;
+  width: 100%;
+  align-self: stretch;
+
+
+  @media screen and (max-width: $breakpoint-mobile) {
+    margin-top: 18px;
+    margin-bottom: 24px;
+  }
+
+}
+
+.mobile_nav {
+  display: none; // Hidden by default
+}
+
+@media screen and (max-width: $breakpoint-mobile) {
+  .mobile_nav {
+    display: block; // Only show mobile nav below a certain breakpoint
+    position: relative; // Ensures it is laid out in flow with other elements
+    padding: 40px 16px 0px 16px;
+  }
+
+  .right {
+    display: none; // Hide desktop sidebar on mobile
+    margin: 0 16px; // 16px margin on both sides
+  }
+
+
+  .mobile_nav_header {
+    display: flex;
+    justify-content: space-between; // Spreads out the title and the hamburger icon
+    align-items: center;
+
+    button {
+      background: none;
+      border: none;
+      outline: none;
+      cursor: pointer;
+
+      &:hover {
+        opacity: 0.8; // Just a slight interaction hint
+      }
+    }
+  }
+
+}
+

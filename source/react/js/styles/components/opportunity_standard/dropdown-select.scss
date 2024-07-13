@@ -1,0 +1,27 @@
+@import '../../opportunity-standard-variables.scss';
+
+.dropdownSelect {
+  position: relative;
+
+  .option {
+    padding: 1.3rem 1rem;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    
+    label {
+      font-size: $controls-font-size;
+      margin-left: 0.8rem;
+      cursor: pointer;
+      font-weight: 700;
+      color: white;
+      transition: color .3s;
+    }
+
+    &.selected {
+      label {
+        color: $blue-light-2;
+      }
+    }
+  }
+}

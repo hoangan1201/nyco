@@ -1,0 +1,67 @@
+@import '../variables';
+@import '../opportunity-standard-variables.scss';
+
+.splitSection {
+  display: flex;
+  background: $scale-default-0;
+
+  .filterContainer {
+    flex: 1;
+    background: $scale-default-0;
+    padding: 5rem 4rem;
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
+    top: 10rem;
+    align-self: start;
+    height: 70vh;
+    max-width: 300px;
+
+    h2, h3, h4 {
+      font-family: 'Public Sans', sans-serif;
+    }
+  }
+
+  .graphsContainer {
+    flex: 3;
+    background: $unmatched-3;
+  }
+
+  @media screen and (max-width: $breakpoint-tablet) {
+    flex-direction: column;
+
+    .filterContainer {
+      // position: relative;
+      height: auto;
+      // top: 0;
+      max-width: unset;
+      align-self: unset;
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+      z-index: 2;
+      
+      button {
+        margin-bottom: 0;
+      }
+    }
+
+    .graphsContainer {
+      padding-left: 4rem;
+      padding-right: 4rem;
+      background: $scale-default-0;
+    }
+  }
+
+  @media screen and (max-width: $breakpoint-mobile) {
+    .graphsContainer {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+
+    .filterContainer {
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+  }
+}

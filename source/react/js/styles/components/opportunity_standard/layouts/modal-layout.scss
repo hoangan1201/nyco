@@ -1,0 +1,39 @@
+@import '../../../opportunity-standard-variables';
+
+.modalLayout {
+  background: $scale-default-0;
+  height: 100lvh;
+
+  .head {
+    padding: 2.5rem 3rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: $scale-default-1;
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Public Sans', sans-serif;
+      font-weight: 700;
+      margin-bottom: 0;
+    }
+
+    h4 {
+      font-size: 25px;
+    }
+
+    .closeIcon {
+      svg g, svg g path {
+        stroke: white !important;
+      }
+    }
+  }
+
+  .content {
+    padding: 3rem 3rem 1rem;
+  }
+
+  .footer {
+    padding: 3rem 3rem;
+    border-top: 3px solid $scale-default-2;
+  }
+}

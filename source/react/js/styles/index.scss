@@ -1,0 +1,16 @@
+@import 'variables';
+
+.root {
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  margin-bottom: 2rem;
+
+  @media screen and (max-width: $breakpoint-small) {
+    margin-bottom: 2rem;
+  }
+}
+
+.rtl {
+  direction: rtl;
+}

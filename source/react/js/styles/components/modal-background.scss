@@ -1,0 +1,23 @@
+@import '../keyframes';
+
+.root {
+  background-color: rgba(3, 24, 55, 0.9);
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10001;
+  visibility: hidden;
+  opacity: 0;
+  // transition: visibility 0s linear .3s, opacity .3s;
+  transform: scaleY(0) scaleX(0);
+  animation: unfoldOut 1s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
+
+  &.open {
+    visibility: visible;
+    opacity: 1;
+    // transition: visibility 0s linear 0s, opacity 300ms;
+    animation: unfoldIn 0.5s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
+  }
+}

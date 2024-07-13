@@ -1,0 +1,40 @@
+@import '../variables';
+
+.root {
+  a {
+    display: flex;
+    font-family: 'Montserrat';
+    font-size: 1.4rem;
+    @media screen and (max-width: $breakpoint-small) {
+      font-size: 1rem;
+    }
+
+    &:hover {
+      .iconWrapper {
+        svg path {
+          stroke: $active-blue;
+        }
+      }
+    }
+  }
+
+  .iconWrapper {
+    // margin-right: 0.5rem;
+    transform: rotate(90deg);
+    svg path {
+      transition: stroke 0.3s ease-out;
+    }
+  }
+
+  .labelWrapper {
+    margin: 0 0.5rem;
+  }
+}
+
+html[dir="rtl"] {
+  .root {
+    .iconWrapper {
+      transform: rotate(-90deg);
+    }
+  }
+}

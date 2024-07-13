@@ -1,0 +1,58 @@
+@import '../variables';
+
+.root {
+  display: flex;
+  position: relative;
+
+  button[class^="standard-icon-button"] {
+    color: $active-blue;
+  }
+
+  div:first-child {
+    background: $alt-bg;
+  }
+
+  .width-50 {
+    width: 50%;
+    box-shadow: 0 2px 10px 0 rgba(0,0,0,0.20);
+    background: $main-card-bg;
+  }
+
+  .select-options {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50%;
+    background: $alt-bg;
+    transform: translateY(-100%);
+    display: none;
+    z-index: 2;
+  }
+
+  .open {
+    display: block;
+  }
+
+  .option {
+    padding: 1.5rem 3rem;
+    text-align: left;
+    background: transparent;
+    cursor: pointer;
+    display: block;
+
+    &.selected,
+    &:hover {
+      background: $active-blue;
+      color: $alt-bg;
+    }
+  }
+
+  @media screen and (max-width: $breakpoint-medium) {
+    svg {
+      max-width: none;
+    }
+  }
+  @media screen and (max-width: $breakpoint-small) {
+    display: none;
+  }
+}

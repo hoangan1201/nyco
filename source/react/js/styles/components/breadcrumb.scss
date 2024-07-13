@@ -1,0 +1,36 @@
+@import '../variables';
+@import '../opportunity-standard-variables.scss';
+
+.breadcrumb_nav {
+  background-color: $main-bg;
+  color: white;
+  display: flex;
+  align-items: center;
+  padding: 56px 400px 56px 104px;
+  font-size: 14px;
+  border: none;
+  box-shadow: none;
+  outline: none;
+  
+  .nav_item {
+    display: flex;
+    align-items: center; // Ensures vertical alignment
+    color: white;
+
+    &:not(:last-child) {
+      margin-right: 10px; // Adjust as needed
+    }
+  }
+
+  a {
+    color: white;
+  }
+
+  .arrow {
+    margin-left: 6px;
+  }
+
+  @media screen and (max-width: $breakpoint-mobile) {
+    padding: 40px 16px 24px 16px;
+  }
+}

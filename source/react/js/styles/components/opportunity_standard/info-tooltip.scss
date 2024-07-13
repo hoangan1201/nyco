@@ -1,0 +1,16 @@
+@import '../../opportunity-standard-variables';
+
+.infoTooltip {
+  position: relative;
+}
+
+.tipBox {
+  background-color: $wdp-alt-bg;
+  padding: 1.7rem 2rem;
+  border: 2px solid $scale-default-4;
+  pointer-events: none;
+  font-family: 'Public Sans', sans-serif;
+  font-size: calc($controls-font-size - 1px);
+  max-width: 200px;
+  line-height: 2.4rem;
+}

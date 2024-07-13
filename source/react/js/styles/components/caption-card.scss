@@ -1,0 +1,33 @@
+@import '../variables';
+
+.root {
+  display: block;
+  margin-top: 6rem;
+  margin-bottom: 6rem;
+  
+  &.divider {
+    border-bottom: 1px solid $link-blue;
+  }
+  
+  .contentWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &> img {
+      width: 100%;
+      height: auto;
+    }
+
+    &> div {
+      display: block;
+      width: 100%;
+    }
+  }
+
+  .caption {
+    font-size: 1.2rem;
+    line-height: 1.8rem;
+    margin: 2rem 0;
+  }
+}

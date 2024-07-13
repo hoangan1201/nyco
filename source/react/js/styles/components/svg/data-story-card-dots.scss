@@ -1,0 +1,174 @@
+.root.hidden {
+  opacity:0;
+}
+
+.root.animationStart circle {
+   transform: scale(0, 0);transform-origin: 50% 50%; transform-box: fill-box;
+}
+
+@keyframes fadeIn {
+  0% { opacity:0; }
+  100% { opacity:1; }
+}
+
+@keyframes scaleUp {
+  0%   { transform: scale(0, 0);transform-origin: 50% 50%; transform-box: fill-box;}
+  100% { transform: scale(1);transform-origin: 50% 50%;transform-box: fill-box;}
+}
+
+.root.animationStart  {
+  animation: fadeIn 0s forwards;
+  filter: drop-shadow( 0 0 2px rgba(0, 0, 0, .2));
+}
+
+.root.animationStart circle{
+  animation: scaleUp .25s ease-out forwards;
+}
+
+.root.animationStart circle:nth-child(1) {
+  animation-delay:.05s;
+}
+.root.animationStart circle:nth-child(2) {
+  animation-delay:.1s;
+}
+.root.animationStart circle:nth-child(3) {
+  animation-delay:.15s;
+}
+.root.animationStart circle:nth-child(4) {
+  animation-delay:.2s;
+}
+.root.animationStart circle:nth-child(5) {
+  animation-delay:.25s;
+}
+.root.animationStart circle:nth-child(6) {
+  animation-delay:.3s;
+}
+.root.animationStart circle:nth-child(7) {
+  animation-delay:.35s;
+}
+.root.animationStart circle:nth-child(8) {
+  animation-delay:.4s;
+}
+.root.animationStart circle:nth-child(9) {
+  animation-delay:.45s;
+}
+.root.animationStart circle:nth-child(10) {
+  animation-delay:.5s;
+}
+.root.animationStart circle:nth-child(11) {
+  animation-delay:.55s;
+}
+.root.animationStart circle:nth-child(12) {
+  animation-delay:.6s;
+}
+.root.animationStart circle:nth-child(13) {
+  animation-delay:.65s;
+}
+.root.animationStart circle:nth-child(14) {
+  animation-delay:.7s;
+}
+.root.animationStart circle:nth-child(15) {
+  animation-delay:.73s;
+}
+.root.animationStart circle:nth-child(16) {
+  animation-delay:.76s;
+}
+.root.animationStart circle:nth-child(17) {
+  animation-delay:.79s;
+}
+.root.animationStart circle:nth-child(18) {
+  animation-delay:.82s;
+}
+.root.animationStart circle:nth-child(19) {
+  animation-delay:.85s;
+}
+.root.animationStart circle:nth-child(20) {
+  animation-delay:.88s;
+}
+.root.animationStart circle:nth-child(21) {
+  animation-delay:.91s;
+}
+.root.animationStart circle:nth-child(22) {
+  animation-delay:.94s;
+}
+.root.animationStart circle:nth-child(23) {
+  animation-delay:.97s;
+}
+.root.animationStart circle:nth-child(24) {
+  animation-delay:1s;
+}
+.root.animationStart circle:nth-child(25) {
+  animation-delay:1.02s;
+}
+.root.animationStart circle:nth-child(26) {
+  animation-delay:1.04s;
+}
+.root.animationStart circle:nth-child(27) {
+  animation-delay:1.06s;
+}
+.root.animationStart circle:nth-child(28) {
+  animation-delay:1.08s;
+}
+.root.animationStart circle:nth-child(29) {
+  animation-delay:1.1s;
+}
+.root.animationStart circle:nth-child(30) {
+  animation-delay:1.12s;
+}
+.root.animationStart circle:nth-child(31) {
+  animation-delay:1.13s;
+}
+.root.animationStart circle:nth-child(32) {
+  animation-delay:1.14s;
+}
+.root.animationStart circle:nth-child(33) {
+  animation-delay:1.15s;
+}
+.root.animationStart circle:nth-child(34) {
+  animation-delay:1.16s;
+}
+.root.animationStart circle:nth-child(35) {
+  animation-delay:1.17s;
+}
+.root.animationStart circle:nth-child(36) {
+  animation-delay:1.18s;
+}
+.root.animationStart circle:nth-child(37) {
+  animation-delay:1.19s;
+}
+.root.animationStart circle:nth-child(38) {
+  animation-delay:1.20s;
+}
+.root.animationStart circle:nth-child(39) {
+  animation-delay:1.21s;
+}
+.root.animationStart circle:nth-child(40) {
+  animation-delay:1.22s;
+}
+.root.animationStart circle:nth-child(41) {
+  animation-delay:1.23s;
+}
+.root.animationStart circle:nth-child(42) {
+  animation-delay:1.24s;
+}
+.root.animationStart circle:nth-child(43) {
+  animation-delay:1.25s;
+}
+.root.animationStart circle:nth-child(44) {
+  animation-delay:1.26s;
+}
+.root.animationStart circle:nth-child(45) {
+  animation-delay:1.28s;
+}
+.root.animationStart circle:nth-child(46) {
+  animation-delay:1.30s;
+}
+.root.animationStart circle:nth-child(47) {
+  animation-delay:1.33s;
+}
+.root.animationStart circle:nth-child(48) {
+  animation-delay:1.36s;
+}
+.root.animationStart circle:nth-child(49) {
+  animation-delay:1.40s;
+}

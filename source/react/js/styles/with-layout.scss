@@ -1,0 +1,228 @@
+@import 'base';
+@import './opportunity-standard-variables.scss';
+
+.root {
+  padding-top: 10rem;
+
+  .main {
+    z-index: 1;
+  }
+
+  &.dark {
+    background-color: $main-bg;
+  }
+
+  // TODO: Can this be made more DRY?
+  // see navigation-menu.scss
+  .opportunity-wrapper {
+    position: fixed;
+    bottom: 14rem;
+    right: 0;
+    z-index: 9999;
+    transform: rotate(-90deg);
+
+    @media screen and (max-width: $breakpoint-medium) {
+      right: -3.5rem;
+    }
+
+    @media screen and (max-width: $breakpoint-small) {
+      display: none;
+      // right: -5rem;
+    }
+  }
+}
+
+html[dir="rtl"] {
+  .root {
+    .opportunity-wrapper {
+      right: auto;
+      left: 0;
+
+      @media screen and (max-width: $breakpoint-medium) {
+        left: -3rem;
+      }
+    }
+  }
+}
+
+.rootNew {
+  h1 {
+    font-size: 65px;
+  }
+
+  h2 {
+    font-size: 45px;
+  }
+
+  h3 {
+    font-size: 30px;
+  }
+
+  h4 {
+    font-size: 25px;
+  }
+
+  p, li {
+    font-size: 20px;
+    font-family: 'Public Sans', sans-serif;
+
+    a {
+      font-size: inherit;
+      line-height: inherit;
+      color: $blue-light-2;
+      text-decoration: none;
+      border-bottom: 1px solid $blue-light-2;
+    }
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    color: white;
+    font-family: 'Rubik';
+    font-style: normal;
+    font-weight: 700;
+    line-height: 120%;
+    margin-bottom: 2rem;
+
+    &.dense {
+      margin-bottom: 1rem;
+    }
+
+    &.sparse {
+      margin-bottom: 3rem;
+    }
+
+    &.lightBlue {
+      color: $scale-light-4;
+    }
+  }
+
+  p {
+    margin-bottom: 3rem;
+
+    &:last-child {
+      margin-bottom: 2rem;
+    }
+  }
+
+  li:not(:last-child) {
+    margin-bottom: 1.5rem;
+  }
+
+  .section {
+    display: flex;
+    padding: 12rem 15%;
+    background: $scale-default-2;
+    outline: none;
+
+    .content {
+      flex: 4;
+    }
+
+    &.verticalCenter {
+      align-items: center;
+    }
+
+    .iconContainer {
+      flex: 1;
+      margin-left: 8rem;
+    }
+
+    &.lessTopPadding {
+      // Make up for header
+      padding-top: 6rem;
+    }
+    
+    &.darker {
+      background: $unmatched-1;
+    }
+
+    &.noBottomPadding {
+      padding-bottom: 0;
+    }
+
+    &.noTopPadding {
+      padding-top: 0;
+    }
+    
+    &:focus, &:focus-visible {
+      outline: none;
+    }
+  }
+
+  .hasBottomMargin {
+    margin-bottom: 6rem;
+  }
+
+  table.modal, div.modal table, table[data-is-styled="true"] {
+  // table {
+    font-family: 'Public Sans', sans-serif;
+    font-size: 13px;
+  }
+
+  @media screen and (min-width: calc($breakpoint-tablet + 1px)) {
+    .tabletOnly, .mobileOnly {
+      display: none !important;
+    }
+  }
+
+  @media screen and (max-width: $breakpoint-tablet) {
+    .desktopOnly, .mobileOnly {
+      display: none !important;
+    }
+
+    h1 {
+      font-size: 38px;
+    }
+
+    h2 {
+      font-size: 32px;
+    }
+
+    h3 {
+      font-size: 27px;
+    }
+
+    h4 {
+      font-size: 20px;
+    }
+
+    p, li {
+      font-size: 17px;
+      line-height: 2.5rem;
+    }
+
+    .section {
+      padding-top: 8rem;
+      padding-bottom: 8rem;
+      padding-left: 4rem;
+      padding-right: 4rem;
+    }
+
+    .lessBottomPaddingOnTablet {
+      padding-bottom: 5rem;
+    }
+  }
+
+  @media screen and (max-width: $breakpoint-mobile) {
+    .desktopOnly, .tabletOnlyOnly {
+      display: none !important;
+    }
+
+    .section {
+      flex-direction: column;
+      padding-top: 6rem;
+      padding-bottom: 2rem;
+      padding-left: 3rem;
+      padding-right: 3rem;
+
+      .content {
+        margin-right: 0 !important;
+        margin-bottom: 2.5rem;
+      }
+    }
+
+    .lessBottomPaddingOnTablet {
+      padding-bottom: 3rem;
+    }
+  }
+}

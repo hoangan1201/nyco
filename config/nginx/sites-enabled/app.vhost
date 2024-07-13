@@ -1,0 +1,77 @@
+upstream sir_dev {
+
+
+    ##
+    # Nginx Bad Bot Blocker Includes
+    # REPO: https://github.com/mitchellkrogza/nginx-ultimate-bad-bot-blocker
+    ##
+	include /etc/nginx/bots.d/ddos.conf;
+ 	include /etc/nginx/bots.d/blockbots.conf;
+
+  server localhost:8080;
+}
+
+server {
+  listen *:80 default;
+
+  # logs
+  access_log /var/log/nginx/access.log;
+  error_log /var/log/nginx/error.log;
+
+  charset utf-8;
+
+  # includes
+  # include options/protect-system-files.conf;
+  # include options/restrict.conf;
+  # include options/x-ua-compatible.conf;
+
+  add_header X-Frame-Options DENY;
+
+  # when serving user-supplied content, include a X-Content-Type-Options: nosniff header along with the Content-Type: header,
+  # to disable content-type sniffing on some browsers.
+  # https://www.owasp.org/index.php/List_of_useful_HTTP_headers
+  # currently suppoorted in IE > 8 http://blogs.msdn.com/b/ie/archive/2008/09/02/ie8-security-part-vi-beta-2-update.aspx
+  # http://msdn.microsoft.com/en-us/library/ie/gg622941(v=vs.85).aspx
+  # 'soon' on Firefox https://bugzilla.mozilla.org/show_bug.cgi?id=471020
+  add_header X-Content-Type-Options nosniff;
+
+  # This header enables the Cross-site scripting (XSS) filter built into most recent web browsers.
+  # It's usually enabled by default anyway, so the role of this header is to re-enable the filter for
+  # this particular website if it was disabled by the user.
+  # https://www.owasp.org/index.php/List_of_useful_HTTP_headers
+  add_header X-XSS-Protection "1; mode=block";
+
+  # with Content Security Policy (CSP) enabled(and a browser that supports it(http://caniuse.com/#feat=contentsecuritypolicy),
+  # you can tell the browser that it can only download content from the domains you explicitly allow
+  # http://www.html5rocks.com/en/tutorials/security/content-security-policy/
+  # https://www.owasp.org/index.php/Content_Security_Policy
+  # I need to change our application code so we can increase security by disabling 'unsafe-inline' 'unsafe-eval'
+  # directives for css and js(if you have inline css or js, you will need to keep it too).
+  # more: http://www.html5rocks.com/en/tutorials/security/content-security-policy/#inline-code-considered-harmful
+  add_header Content-Security-Policy "frame-ancestors none;";
+
+  # static files
+  location ~ ^/(media|static)/ {
+    root /app/data;
+    expires 1M;
+    add_header Cache-Control "public";
+    access_log off;
+    log_not_found off;
+  }
+
+  location ~ ^/(robots\.txt|humans\.txt|favicon\.ico|apple-touch-icon(.*)\.png).*$ {
+      root /app/data/static;
+      expires max;
+      add_header Cache-Control public;
+  }
+
+  # django
+  location / {
+    # Password protect site access
+    #auth_basic "Restricted";
+    #auth_basic_user_file /var/www/dev.sir.bbox.ly/current/config/nginx/location/auth.conf;
+
+    proxy_pass http://sir_dev;
+    include /app/config/nginx/proxy_params;
+  }
+}

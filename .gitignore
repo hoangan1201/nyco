@@ -1,0 +1,37 @@
+*.pyc
+.DS_Store
+.vaultpass
+*.terraform*
+# ignore emacs and vim tmp files
+.*.*.sw*
+\#*\#
+*~
+db_dumps/*
+# Temp Directory
+.tmp/*
+!.tmp/.gitkeep
+
+# Django
+source/settings/local.py
+source/settings/.env
+static/
+media/
+logs/
+django_cache/*
+
+# Cached/Static
+.sass-cache/
+*/.sass-cache/
+.bundle
+**/public/react/bundles/main.js
+**/public/react/bundles/main.js.map
+
+# Pycharm files
+.idea
+
+lint-report
+**/webpack-stats.json
+**/node_modules/*
+*node_modules/*
+
+source/settings/maintenance_mode_state.txt

@@ -1,0 +1,54 @@
+@import '../variables';
+
+.languageDropdown {
+  display: flex;
+  padding-bottom: 5px;
+  position: relative;
+  width: 18rem;
+  @media screen and (max-width: $breakpoint-small) {
+    display: none;
+  }
+
+  transition: background-color 0.3s ease-out 0.6s, box-shadow 0.3s ease-out 0.6s;
+  // &.expanded {
+  //   // transition: background-color 0.3s ease-out;
+  //   // background-color: $main-card-bg;
+  //   // box-shadow: $box-shadow;
+
+  //   .languageIconWrapper {
+  //     svg path:first-child {
+  //       fill: $active-blue;
+  //     }
+  //     svg path:last-child {
+  //       stroke: $active-blue;
+  //     }
+  //   }
+  // }
+
+  // &:focus {
+  //   outline: 2px dotted $active-blue;
+  //   outline-offset: 3px;
+  // }
+
+  .languageIconWrapper {
+    cursor: pointer;
+    width: 250%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    font-size: 13px;
+    font-weight: 600;
+    word-spacing: 4px;
+    gap: 4px;
+
+    svg {
+      path{
+        transition: fill 0.3s ease-out, stroke 0.3s ease-out;
+      }
+    }
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

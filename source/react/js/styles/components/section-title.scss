@@ -1,0 +1,119 @@
+@import '../variables';
+
+.root {
+  opacity: 0;
+  transform: translateX(-2rem);
+  transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+
+  &.in {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .title {
+    margin-bottom: 3.5rem;
+
+    color: $white;
+    font-size: 6.4rem;
+    line-height: 7.2rem;
+
+    @media screen and (max-width: $breakpoint-small) {
+      font-size: 3.2rem;
+      line-height: 4rem;
+    }
+  }
+
+  .text {
+    position: relative;
+    margin-left: $grid-col-width;
+
+    @media screen and (max-width: $breakpoint-small) {
+      margin-left: 0;
+      padding-top: 1rem;
+      font-size: 1.4rem;
+      line-height: 2rem;
+    }
+
+    &:before {
+      content: '';
+      position: absolute;
+      height: 0.2rem;
+      background-color: $link-blue;
+      top: 1.5rem;
+      width: 4rem;
+      right: 100%;
+      margin-right: 2rem;
+
+      @media screen and (max-width: $breakpoint-small) {
+        top: -1.5rem;
+        left: 0;
+      }
+    }
+  }
+
+  .navLinkWrapper {
+    margin: 2rem 6rem;
+
+    @media screen and (max-width: $breakpoint-small) {
+      margin: 2rem 0;
+    }
+
+    a {
+      font-family: 'Rubik';
+      font-weight: bold;
+      font-size: 1.8rem;
+      line-height: 1;
+
+      @media screen and (max-width: $breakpoint-small) {
+        font-size: 1.4rem;
+      }
+
+      svg g {
+        transition: stroke $transition;
+      }
+
+      &:hover svg g {
+        stroke: $active-blue;
+      }
+    }
+
+    .iconWrapper {
+      margin-left: 0.5rem;
+    }
+  }
+}
+
+html[dir="rtl"] {
+  .root {
+    .text {
+      margin-left: 0;
+      margin-right: $grid-col-width;
+
+      @media screen and (max-width: $breakpoint-small) {
+        margin-right: 0;
+      }
+
+      &:before {
+        right: auto;
+        left: 100%;
+        margin-right: 0;
+        margin-left: 2rem;
+
+        @media screen and (max-width: $breakpoint-small) {
+          // top: -1.5rem;
+          right: 0;
+        }
+      }
+    }
+    .navLinkWrapper {
+      .iconWrapper {
+        margin-left: 0;
+        margin-right: 0.5rem;
+
+        svg {
+          transform: rotate(180deg);
+        }
+      }
+    }
+  }
+}

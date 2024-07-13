@@ -1,0 +1,345 @@
+@import '../variables';
+
+.root {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  position: relative;
+  z-index: 1;
+
+  button {
+    svg g {
+      transition: stroke 0.3s ease-out;
+    }
+
+    &:hover {
+      svg g {
+        stroke: $active-blue;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: $breakpoint-large) {
+  .root {
+    justify-content: flex-end;
+  }
+}
+
+.card {
+  position: relative;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(2rem);
+  background-color: $main-card-bg;
+  // (12 * 60) + (11 * 40) = 1160
+  // (6 * 60) + (5 * 40) = 560
+  width: calc((6 * 6rem) + (5 * 4rem));
+  // max-width: 108rem;
+  // height: 69.3rem;
+  // padding: 4rem 0 0;
+  padding: 0;
+  max-width: 116rem;
+
+  transition: width 0.3s ease-out, opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
+  @media screen and (max-width: $breakpoint-medium) {
+    width: 100%;
+  }
+
+  &:before {
+    content: '';
+    position: absolute;
+    height: 0.2rem;
+    background-color: $main-card-bg;
+    top: 0.2rem;
+    width: 0;
+    left: 0;
+    transition: width 0.45s ease-out;
+  }
+
+  &.over {
+    &:before {
+      width: 100%;
+      background-color: $active-blue;
+    }
+  }
+}
+
+.shadowWrapper {
+  box-shadow: 0 0.2rem 1rem 0 rgba(0,0,0,0.20);
+  // box-shadow: 0rem 0.2rem 1rem black;
+  padding-top: 4rem;
+  position: relative;
+  z-index: 1;
+
+  @media screen and (max-width: $breakpoint-small) {
+    padding-top: 2rem;
+  }
+}
+
+.card .expandWrapper {
+  display: flex;
+  cursor: pointer;
+  margin-left: 4rem;
+  margin-right: 4rem;
+  @media screen and (max-width: $breakpoint-small) {
+    margin-left: 2rem;
+  }
+  // padding-top: 4rem;
+}
+
+.card.expanded {
+  // width: calc(100vw - 16rem); // if we have 4rem padding
+  // max-width: 108rem;
+  // width: 100vw;
+  width: 100%;
+  // max-width: 116rem;
+}
+
+.card.active {
+  opacity: 1;
+  transform: translateX(0);
+  visibility: visible;
+}
+
+@media screen and (min-width: $breakpoint-large) {
+  .card {
+    position: absolute;
+  }
+
+  .card.sticky {
+    position: fixed;
+    // top: 16.5rem;
+    top: 13rem;
+  }
+}
+
+.chartWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  // &.map {
+  //   background-color: #071F42;
+  // }
+
+  .chartMargins {
+    margin: 2rem 6rem;
+    width: 100%;
+    // height: 56.6rem;
+
+    @media screen and (max-width: $breakpoint-small) {
+      margin: 2rem;
+      height: auto;
+    }
+  }
+}
+
+// .fakeChartWrapper {
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//
+//   .fakeChart {
+//     margin: 4rem;
+//     width: 100%;
+//     height: 56.6rem;
+//     // @support-blue
+//     background-color: $support-blue;
+//
+//     @media screen and (max-width: $breakpoint-small) {
+//       margin: 2rem;
+//       height: 33.8rem;
+//     }
+//
+//     .id {
+//       display: flex;
+//       align-items: center;
+//       justify-content: center;
+//       height: 100%;
+//     }
+//   }
+// }
+
+
+.width-50 {
+  width: 50%;
+  box-shadow: 0 2px 10px 0 rgba(0,0,0,0.20);
+  // box-shadow: 0rem 0.2rem 1rem black;
+  background: $main-card-bg;
+}
+.button-wrapper {
+  display: flex;
+  position: relative;
+}
+.button-wrapper div:first-child {
+  background: $alt-bg;
+}
+
+.filteringWrapper {
+  width: 100%;
+  margin: 1.5rem 0 0.8rem;
+
+  &> div[class^="categories-filtering_root"] > div > div[class^="categories-filtering_headerBtn"] {
+    justify-content: space-between;
+    padding: 1.6rem 2rem;
+  }
+
+  &> div[class^="categories-filtering_root"] > div[class^="categories-filtering_dropdown"] {
+    max-width: none;
+
+    &> ul:first-child {
+      width: 100%;
+      padding: 4rem 0;
+    }
+
+    &> ul > li {
+      width: 24rem;
+    }
+  }
+}
+
+.filters {
+  border-top: 2px solid $link-blue;
+}
+
+.pills {
+  display: block;
+  width: 100%;
+  margin: 0 -.5rem 5.5rem;
+
+  &:empty {
+    margin-bottom: 2rem;
+  }
+}
+
+.chartContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  
+  @media screen and (max-width: $breakpoint-medium) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .rightWrapper {
+    flex: 1;
+    min-height: 42rem;
+    max-width: 66rem;
+
+    &.fullwidth {
+      max-width: 100%;
+    }
+    
+    @media screen and (max-width: $breakpoint-medium) {
+      width: 100%;
+    }
+  }
+}
+
+.tableContainer {
+  &> div {
+    justify-content: space-between;
+    align-items: flex-start;
+    padding-top: 0;
+
+    @media screen and (max-width: $breakpoint-medium) {
+      flex-direction: column;
+      align-items: flex-start;
+      padding-top: 0;
+    }
+
+    &> div:first-child{
+      max-width: 35rem;
+      overflow-y: auto;
+      max-height: 50rem;
+      margin-right: 4rem;
+
+      h3 {
+        max-width: 32rem;
+        color: $active-blue;
+        font-weight: 400;
+        line-height: 3.2rem;
+      }
+
+      @media screen and (max-width: $breakpoint-medium) {
+        margin: 0 2rem 2rem;
+      }
+    }
+
+    &> div:last-child{
+      flex: 1;
+      min-height: 42rem;
+      max-width: 66rem;
+
+      @media screen and (max-width: $breakpoint-medium) {
+        max-width: 100%;
+      }
+    }
+  }
+}
+
+.meta {
+  max-width: 35rem;
+  overflow-y: auto;
+  max-height: 50rem;
+  margin-right: 4rem;
+  
+  h3 {
+    max-width: 32rem;
+    color: $active-blue;
+    font-weight: 400;
+    line-height: 3.2rem;
+  }
+
+  ul {
+    margin: 3rem 0;
+
+    li {
+      font-size: 1.2rem;
+    }
+  }
+
+  .description {
+    display: block;
+    line-height:20px;
+    font-size: 14px;
+    margin-top: 10px;
+    overflow: hidden;
+  }
+
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+ 
+  &::-webkit-scrollbar-thumb {
+    background: $link-blue;
+  }
+
+  @media screen and (max-width: $breakpoint-medium) {
+    margin: 0 2rem 2rem;
+  }
+}
+
+.hidden {
+  display: none;
+}
+
+.centermap {
+  justify-content: center;
+}
+
+g[class*="highcharts-zoom-in"], g[class*="highcharts-zoom-out"] {
+  &> path {
+    display: none !important;
+  }
+}
+
+html[dir="rtl"] {
+  .card {
+    &:before {
+      right: 0;
+    }
+  }
+}

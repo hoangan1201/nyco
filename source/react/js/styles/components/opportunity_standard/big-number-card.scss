@@ -1,0 +1,66 @@
+@import '../../opportunity-standard-variables.scss';
+
+.bigNumberCard {
+  display: block;
+  border-radius: 5px;
+  border: 1px solid $scale-default-5;
+
+  .upper {
+    padding: 2rem;
+    background: $scale-default-4;
+    color: $scale-light-4;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+
+    .label {
+      margin-bottom: 1rem;
+      font-size: $controls-font-size;
+    }
+
+    h1, h2, h3, h4, h5 {
+      color: white;
+      margin-bottom: 0;
+    }
+  }
+
+  .lower {
+    padding: 2.5rem 3rem 3rem;
+    background: $scale-light-4;
+    color: $scale-default-3;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    flex-direction: column;
+
+    .numberContainer {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .iconContainer {
+        display: flex;
+        flex-shrink: 0;
+      }
+
+      .number {
+        margin-left: 1.5rem;
+        flex: 1;
+        font-size: 45px;
+        font-weight: 700;
+      }
+    }
+
+    .bottomLabel {
+      font-size: calc($controls-font-size - 2px);
+      margin-top: 0.5rem;
+      font-family: 'Public Sans', sans-serif;
+    }
+  }
+
+  @media screen and (max-width: $breakpoint-tablet) {
+    .lower {
+      .number {
+        font-size: 36px;
+      }
+    }
+  }
+}

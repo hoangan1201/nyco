@@ -1,0 +1,104 @@
+@import '../../opportunity-standard-variables';
+
+.dropdown {
+  position: relative;
+  
+  .head {
+    padding: 1.3rem 1rem;
+    font-size: $controls-font-size;
+    font-family: 'Public Sans', sans-serif;
+    font-weight: 700;
+    border-radius: 5px;
+    cursor: pointer;
+    background: white;
+    color: $scale-default-3;
+    position: relative;
+    display: block;
+    text-align: left;
+
+    &:focus {
+      outline: 2px solid $blue-light-2;
+      outline-offset: 4px;
+    }
+    
+    svg {
+      position: absolute;
+      right: .75rem;
+      top: 50%;
+      transform: translate(0, -50%); // Center vertically
+    }
+  }
+
+  .dropdownContent {
+    background: $scale-default-2;
+    border: 1px solid $scale-default-2;
+    width: 100%;
+    border-radius: 5px;
+    margin-top: 1.5rem;
+
+    // Force scrollbar visibility when scrollable
+    &::-webkit-scrollbar {
+      -webkit-appearance: none;
+      width: 7px;
+    }
+    
+    &::-webkit-scrollbar-thumb {
+      border-radius: 4px;
+      background-color: rgba(255, 255, 255, .5);
+      box-shadow: 0 0 1px rgba(0, 0, 0, .5);
+    }
+  }
+
+  &.showAsPopup {
+    .dropdownContent {
+      position: absolute;
+      top: 6rem;
+      margin-top: 0;
+      z-index: 1;
+    }
+  }
+
+  &.dark {
+    .head {
+      background: $scale-default-4;
+      color: white;
+
+      svg g path {
+        stroke: white;
+      }
+    }
+    
+    input[type="radio"], input[type="checkbox"] {
+      border-color: white;
+      color: white;
+    }
+
+    input[type="checkbox"] {
+      &:checked {
+        border-color: $blue-light-2 !important;
+        background-color: $blue-light-2 !important;
+      }
+    }
+    
+    input[type="radio"] {
+      &:checked {
+        border-color: $blue-light-2 !important;
+
+        &::before {
+          background-color: $blue-light-2 !important;
+        }
+      }
+    }
+  }
+
+  &.light {
+    .head {
+      background: white;
+      color: $scale-default-3;
+
+      svg g path {
+        stroke: $scale-default-3;
+      }
+    }
+  }
+}

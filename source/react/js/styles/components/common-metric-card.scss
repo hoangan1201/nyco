@@ -1,0 +1,55 @@
+@import '../opportunity-standard-variables';
+
+.commonMetricCard {
+  .content {
+    max-width: 800px;
+    margin: auto;
+  }
+
+  background: $unmatched-2;
+  padding: 7rem 10rem;
+  margin-bottom: 5px;
+
+  p, li {
+    font-size: 18px;
+  }
+
+  .disclaimer {
+    font-style: italic;
+    color: $scale-light-4;
+    margin-bottom: 2.5rem;
+  }
+
+  .chartContainer {
+    max-width: 100%;
+
+    &.hasTable {
+      margin-bottom: 3rem;
+      max-height: 50vh;
+      overflow: scroll;
+    }
+
+    div {
+      background: transparent;
+    }
+  }
+  
+  @media screen and (min-width: $breakpoint-tablet) {
+    .chartContainer.hasTable {
+      max-width: 60vw;
+    }
+  }
+
+  @media screen and (max-width: $breakpoint-tablet) {
+    padding: 5rem 4rem;
+    margin-bottom: 2rem;
+    
+    p, li {
+      font-size: 17px;
+    }
+  }
+
+  @media screen and (max-width: $breakpoint-mobile) {
+    padding: 4rem 3rem;
+  }
+}

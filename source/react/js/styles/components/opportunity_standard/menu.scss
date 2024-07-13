@@ -1,0 +1,61 @@
+@import '../../opportunity-standard-variables';
+
+.menu, .menu.light {
+  .menuContent {
+    background: $scale-light-2;
+    border: 1px solid $scale-default-4;
+    a, p, label {
+      color: $blue-light-1;
+
+      a, a:hover {
+        color: $blue-light-1;
+      }
+
+      &:hover {
+        background: $scale-light-3;
+      }
+    }
+  }
+}
+
+.menu {
+  position: relative;
+  margin-bottom: 3rem;
+
+  .menuContent {
+    width: 100%;
+    border: 1px solid $scale-default-4;
+    border-radius: 5px;
+  }
+
+  a, p, label {
+    display: block;
+    padding: 2rem;
+    cursor: pointer;
+    transition: background .3s;
+    border-radius: 5px;
+    font-size: 14px;
+  }
+
+  &.isFloating {
+    position: absolute;
+    top: 6rem;
+    z-index: 1;
+    min-width: 300px;
+  }
+
+  &.dark {
+    .menuContent {
+      background: $scale-default-4;
+
+      a, p, label {
+        color: white;
+
+        &:hover {
+          color: white;
+          background: $scale-default-3;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,75 @@
+@import '../variables';
+@import '../opportunity-standard-variables.scss';
+
+
+.arrowIcon {
+  margin-left: 4px;
+  width: 12px;
+  height: 12px;
+}
+
+.navigationMenu {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+
+  @media screen and (max-width: $breakpoint-tablet) {
+    display: none; 
+    flex-direction: column;
+    width: 100%; 
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: $off-white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 16px 0; 
+  }
+
+  &.active {
+    display: flex; 
+  }
+
+  .navItem {
+    padding-left: 12px;
+    padding-right: 12px;
+    display: flex;
+    align-items: center;
+
+    @media screen and (max-width: $breakpoint-tablet) {
+      width: calc(100% - 40px); 
+      padding: 16px 8px; 
+      margin-left: 40px; 
+      box-sizing: border-box; 
+      display: flex;
+      align-items: center; 
+    }
+
+    @media screen and (max-width: $breakpoint-mobile) {
+      width: calc(100% - 16px); 
+      padding: 16px 8px; 
+      margin-left: 16px; 
+      box-sizing: border-box;
+    }
+
+    a {
+      text-decoration: none;
+      color: $off-black;
+      font-size: 14px; 
+      padding-left: 4px; 
+      display: flex; 
+      align-items: center; 
+
+      &:hover {
+        text-decoration: underline;
+      }
+
+      @media screen and (max-width: $breakpoint-tablet) {
+        width: 100%;
+      }
+
+    }
+  }
+}

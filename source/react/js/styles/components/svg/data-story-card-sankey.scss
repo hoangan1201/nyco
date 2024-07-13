@@ -1,0 +1,70 @@
+.root.hidden {
+  opacity:0;
+}
+
+@keyframes fadeIn {
+  0% { opacity:0; }
+  100% { opacity:1; }
+}
+
+@keyframes slideInDown {
+  0%   { transform: scale(1, 0); transform-origin:top top; }
+  100% { transform: scale(1, 1); transform-origin:top top; }
+}
+
+@keyframes slideInRight {
+  0%   { transform: scale(0, 1); transform-origin:left left; }
+  100% { transform: scale(1, 1); transform-origin:left left; }
+}
+
+.root.animationStart g path {
+  transform: scale(0, 0);
+}
+
+.root.animationStart g polygon, .root.animationStart g rect {
+  animation: slideInDown .5s forwards;
+}
+
+.root.animationStart {
+  animation: fadeIn 0s forwards;
+}
+
+.root.animationStart g path:nth-child(1) {
+  animation: slideInDown .5s forwards .5s;
+}
+
+.root.animationStart g path:nth-child(2) {
+  animation: slideInDown .5s forwards .55s;
+}
+
+.root.animationStart g path:nth-child(3) {
+  animation: slideInDown .5s forwards .6s;
+}
+
+.root.animationStart g path:nth-child(4) {
+  animation: slideInDown .5s forwards .65s;
+}
+
+.root.animationStart g rect.bar1 {
+  animation-duration: .5s;
+}
+
+.root.animationStart g rect.bar2 {
+  animation-duration: .75s;
+}
+
+.root.animationStart g rect.bar3 {
+  animation-duration: 1s;
+}
+
+.root.animationStart g polygon.bar4 {
+  animation-duration: 1.25s;
+}
+
+.root.animationStart g polygon.bar5 {
+  animation-duration: .95s;
+}
+
+.root.animationStart g rect.bar6 {
+  animation-duration: 1.15s;
+}

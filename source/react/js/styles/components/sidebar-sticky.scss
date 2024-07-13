@@ -1,0 +1,39 @@
+@import '../variables';
+@import '../opportunity-standard-variables.scss';
+
+.root {
+  // display: block;
+  // position: sticky;
+  // height: 100%;
+  position: sticky;
+  top: 0;
+  padding-top: 56px;
+  padding-bottom: 56px;
+
+}
+
+// .sticky {
+//   position: fixed;
+//   top: 12rem;
+//   left: 0;
+//   width: 16rem;
+//   animation: all 0.5 ease-in-out;
+// }
+
+// .stickyBottom {
+//   position: absolute;
+//   bottom: 2.5rem;
+//   // left: 0;
+//   right: 0;
+//   animation: all 0.5 ease-in-out;
+// }
+
+
+/* Mobile styles */
+@media screen and (max-width: $breakpoint-mobile) {
+  .root {
+    position: static;
+    padding-top: 24px;
+    padding-bottom: 24px;
+  }
+}

@@ -1,0 +1,178 @@
+{% load render_bundle from webpack_loader %}
+{% load page_tags translation_tags i18n static %}
+<!DOCTYPE html>
+<html lang="{% if LANGUAGE_CODE == 'en' %}en{% elif LANGUAGE_CODE == 'es' %}es{% elif LANGUAGE_CODE == 'fr' %}fr{% elif LANGUAGE_CODE == 'bn' %}bn{% elif LANGUAGE_CODE == 'ar' %}ar{% elif LANGUAGE_CODE == 'ur' %}ur{% endif %}" {% if LANGUAGE_CODE == 'ar' or LANGUAGE_CODE == 'ur' %}dir="rtl"{% endif %}>
+  <head>
+    <meta charset="UTF-8">
+    <title>Workforce Data Portal</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/static/images/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/static/images/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/static/images/favicons/favicon-16x16.png">
+    <link rel="manifest" href="/static/images/favicons/site.webmanifest">
+    <link rel="mask-icon" href="/static/images/favicons/safari-pinned-tab.svg" color="#031837">
+    <meta name="msapplication-TileColor" content="#031837">
+    <meta name="theme-color" content="#031837">
+
+    <style>body { background: #031837; }</style>
+    <script async src="https://www.googletagmanager.com/gtag/js?id={{config.GOOGLE_ANALYTICS_ID}}"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', '{{config.GOOGLE_ANALYTICS_ID}}');
+    </script>
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','{{config.GOOGLE_TAG_MANAGER_ID}}');
+    </script>
+  <!-- End Google Tag Manager -->
+  </head>
+  <!-- holding for research from skoch on how best to accomplish a right-to-left body class -->
+  <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript>
+      <iframe src="https://www.googletagmanager.com/ns.html?id={{config.GOOGLE_TAG_MANAGER_ID}}"
+      height="0" width="0" style="display:none;visibility:hidden">
+    </iframe>
+    </noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <div id="workforce-data-portal-app">
+      <p>{{ LANGUAGE_BIDI }}</p>
+    </div>
+  </body>
+<script>
+    {% get_homepage as homepage %}
+
+  window.homepage_description = `{{ homepage.homepage_description }}`
+  window.App = {
+    "intl": {
+      "locale": "{{LANGUAGE_CODE}}",
+      "isRtl": {% if LANGUAGE_CODE == 'ar' %}true{% else %}false{% endif %},
+    },
+
+    "pages": {
+      "colors": [
+        {% for color in colors %}
+        '{{color|cut:" "}}',
+        {% endfor %}
+      ],
+      "primaryBarColors": [
+        {% for color in primaryBarColors %}
+          '{{color|cut:" "}}',
+        {% endfor %}
+      ],
+      "secondaryBarColors": [
+        {% for color in secondaryBarColors %}
+          '{{color|cut:" "}}',
+        {% endfor %}
+      ],
+      "matrixIconColors": [
+        {% for color in matrixIconColors %}
+          '{{color|cut:" "}}',
+        {% endfor %}
+      ],
+      "internal": {{internal}},
+      "showAgencyPublicFilters": {{ showAgencyPublic }},
+      "showAgencyInternalFilters": {{ showAgencyInternal }},
+      "decimalPoints": {{ decimalPoints }},
+      "letsGoDestination": "{{ letsGoDestination }}",
+      "translated_strings": {
+  {% get_translated_strings as strings %}
+  {% for string in strings %}
+    "{{ string.text }}":"{{ string.translated_string }}",
+  {% endfor %}
+  {% get_common_metric as common_metric_landing %}
+    "common_metric_title": "{{ common_metric_landing.title }}",
+    "common_metric_description":"{{common_metric_landing.description}}",
+    "common_metric_homepage_description":"{{common_metric_landing.homepage_description}}",
+  {% get_data_story as data_story_landing %}
+    "data_story_title": "{{ data_story_landing.title }}",
+    "data_story_description": "{{ data_story_landing.description }}",
+  },
+      "header": {
+        "nav": [
+          {% get_main_items as main_nav_items %}
+          {% for item in main_nav_items %}
+            {
+              "label": "{{ item.title }}",
+              "desc": "{{ item.hover_description }}",
+              {% if item.landing_page.description %}
+                "landing_title": "{{ item.landing_page.title }}",
+                "landing_slug": "{{ item.landing_page.slug }}",
+                "url": "{{ item.landing_page.slug }}",
+              {% elif item.basic_page %}
+                "basic_title": "{{ item.basic_page.title }}",
+                "basic_slug": "{{ item.basic_page.slug }}",
+                "url": "{{ item.basic_page.slug }}",
+              {% endif %}
+            },
+          {% endfor %}
+        ],
+        "language": [
+          {% get_available_languages as LANGUAGES %}
+          {% for language in LANGUAGES %}
+          {% get_language_info for language.0 as lang %}
+            {
+              "label": "{{ lang.name_local }}",
+              "languageCode": "{{ language.0 }}",
+            },
+          {% endfor %}
+        ],
+      },
+      "footer": {
+        "nav": [
+          {% get_footer_items as footer_nav_items %}
+          {% for item in footer_nav_items.firstColumn %}
+            {
+              "label": "{{ item.title }}",
+              "desc": "{{ item.hover_description }}",
+              {% if item.landing_page.description %}
+                "landing_title": "{{ item.landing_page.title }}",
+                "landing_slug": "{{ item.landing_page.slug }}",
+                "url": "{{ item.landing_page.slug }}",
+              {% elif item.basic_page %}
+                "basic_title": "{{ item.basic_page.title }}",
+                "basic_slug": "{{ item.basic_page.slug }}",
+                "url": "{{ item.basic_page.slug }}",
+              {% endif %}
+            },
+
+          {% endfor %}
+        ],
+        "secondColumn": [
+      {% for item in footer_nav_items.secondColumn %}
+      {
+        "label": "{{ item.text}}",
+        "url": "{{ item.url }}",
+        "isExternal": "{{ item.external}}",
+      },
+      {% endfor %}
+      ],
+      "thirdColumn": [
+      {% for item in footer_nav_items.thirdColumn %}
+      {
+        "label": "{{ item.text}}",
+        "url": "{{ item.url }}",
+        "isExternal": "{{ item.external}}",
+      },
+      {% endfor %}
+      ],
+      }
+    }
+  }
+</script>
+</script>
+{% if debug == '1' %}
+  <!-- Warning: Site is running in debug mode. -->
+  {% render_bundle 'main' %}
+{% else %}
+  <script src="{% static 'react/bundles/main.js' %}"></script>
+{% endif %}
+</html>

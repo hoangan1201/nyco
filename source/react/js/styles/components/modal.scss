@@ -1,0 +1,125 @@
+@import '../variables';
+@import '../keyframes';
+
+.root {
+  // width: 100vw;
+  // height: 100%;
+  // min-height: 100vh;
+  // overflow: scroll;
+  // width: calc(100vw - 21rem);
+  // width: 116.2rem;
+  width: calc(100% - 12rem);
+  max-width: 116rem;
+  height: calc(100vh - 21rem);
+  max-height: 57rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $main-card-bg;
+  position: fixed;
+  padding: 6rem;
+  // top: 50%;
+  // takes into account the footer
+  top: calc(50% - 4.1rem);
+  left: 50%;
+  transform: translate(-50%, 50%);
+  // max-height: 70rem;
+  z-index: 10002;
+  visibility: hidden;
+  opacity: 0;
+  // transition: visibility 0s linear .3s, opacity .3s;
+	transform-origin: bottom center;
+  animation: rotateOut 1s ease-out forwards;
+
+  box-shadow: $box-shadow;
+
+  flex-direction: column;
+
+  @media screen and (max-width: $breakpoint-medium) {
+    max-height: none;
+  }
+
+  @media screen and (max-width: $breakpoint-small) {
+    top: 0;
+    left: 0;
+    transform: translateY(0);
+    padding: 2rem;
+    width: calc(100vw - 4rem);
+    height: calc(100vh - 4rem);
+    max-height: none;
+    align-items: flex-start;
+    // height: 100vh;
+    animation: rotateOutSmall 1s ease-out forwards;
+  }
+
+  &.open {
+    visibility: visible;
+    // opacity: 1;
+    // transition: visibility 0s linear 0s, opacity 300ms;
+    animation: rotateIn .5s .8s ease-in forwards;
+    
+    @media screen and (max-width: $breakpoint-small) {
+      animation: rotateInSmall .5s .8s ease-in forwards;
+    }
+  }
+
+  .modalContent {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    @media screen and (max-width: $breakpoint-medium) {
+      overflow: auto;
+    }
+
+    .chartContainer {
+      width: 100%;
+      &.hidden {
+        display: none;
+      }
+    }
+  }
+
+  .modalFooter {
+    width: 100%;
+    position: absolute;
+    top: 100%;
+    @media screen and (max-width: $breakpoint-small) {
+      display: none;
+    }
+  }
+
+  .modalClose {
+    position: absolute;
+    top: 6rem;
+    left: 6rem;
+
+    svg g {
+      transition: stroke 0.3s ease-out;
+    }
+
+    &:hover {
+      svg g {
+        stroke: $active-blue;
+      }
+    }
+
+    @media screen and (max-width: $breakpoint-small) {
+      position: relative;
+      top: 0;
+      left: 0;
+    }
+  }
+}
+
+html[dir="rtl"] {
+  .root {
+    .modalClose {
+      left: initial;
+      right: 6rem;
+
+      @media screen and (max-width: $breakpoint-small) {
+        right: 0;
+      }
+    }
+  }
+}

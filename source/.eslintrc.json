@@ -1,0 +1,35 @@
+{
+  "parser": "babel-eslint",
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "extends": "airbnb",
+  "plugins": [
+    "react",
+    "jsx-a11y",
+    "import"
+  ],
+  "rules": {
+    "react/jsx-filename-extension": [
+      1,
+      {
+        "extensions": [
+          ".js",
+          ".jsx"
+        ]
+      }
+    ],
+    "no-console": [0],
+    "react/no-access-state-in-setstate": [0],
+    "jsx-a11y/label-has-for": [
+      2,
+      {
+        "required": {
+          "every": [ "nesting", "id" ]
+        },
+        "allowChildren": true
+      }
+    ]
+  }
+}

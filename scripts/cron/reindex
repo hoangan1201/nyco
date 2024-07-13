@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# source the envfile data
+if [ -f "/envfile" ]; then
+  set -a
+  source /envfile
+  set +a
+fi
+export 
+python /app/source/manage.py rebuild_index --noinput

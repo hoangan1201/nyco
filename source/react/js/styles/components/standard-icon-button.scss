@@ -1,0 +1,74 @@
+@import '../variables';
+
+.root {
+  display: flex;
+  position: relative;
+  align-items: center;
+}
+
+button.root {
+  font-family: 'Rubik';
+  font-weight: bold;
+  // padding: 1rem;
+  text-align: left;
+  box-sizing: border-box;
+  color: $link-blue;
+  font-size: 1.4rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: background-color, color 0.45s ease-out;
+  background: none;
+  background-color: transparent;
+  padding: 3rem 3rem;
+  width: 100%;
+
+  .svg-wrapper svg g,
+  .svg-wrapper svg path,
+  .svg-wrapper svg polygon,
+  .svg-wrapper svg polyline {
+    // TODO: g has a stroke on download icon that is causing
+    // transition issues
+    transition: stroke 0.45s ease-out;
+  }
+
+  &:after {
+    content: '';
+    position: absolute;
+    height: 0.2rem;
+    background-color: $alt-bg;
+    top: calc(100% - 0.2rem);
+    width: 100%;
+    right: 0;
+    transition: all 0.45s ease-out;
+  }
+}
+// svg path {
+//   transition: fill 0.2s ease-out;
+// }
+button.root:hover .svg-wrapper svg g  {
+  path,
+  polyline {
+    stroke: $active-blue;
+  }
+}
+
+button.root:hover {
+  color: $active-blue;
+}
+
+button.root:hover:after {
+  background-color: $active-blue;
+}
+
+.svg-wrapper {
+  margin-right: 1.8rem;
+}
+
+html[dir="rtl"] {
+  button.root {
+    .svg-wrapper {
+      margin-right: 0;
+      margin-left: 1.8rem;
+    }
+  }
+}

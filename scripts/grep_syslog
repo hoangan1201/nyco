@@ -1,0 +1,5 @@
+#!/bin/bash
+
+# Greps syslog and prints matching lines to stdout
+echo "Printing $1 from syslog"
+tail -f /var/log/syslog | grep -i $1

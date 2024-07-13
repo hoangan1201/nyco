@@ -1,0 +1,35 @@
+.root.hidden {
+  opacity:0;
+}
+
+@keyframes fadeIn {
+  0% { opacity:0; }
+  100% { opacity:1; }
+}
+
+@keyframes slideIn {
+  0%   { transform: scale(1, 0); transform-origin:bottom bottom; }
+  100% { transform: scale(1, 1); transform-origin:bottom bottom; }
+}
+
+.root.animationStart  {
+  animation: fadeIn 0s forwards 0s;
+  filter: drop-shadow( 0 0 2px rgba(0, 0, 0, .2));
+}
+
+.root.animationStart g rect {
+  animation: slideIn 1.25s ease-out;
+}
+
+.root.animationStart g rect:nth-child(2) {
+  animation: slideIn 1.75s ease-out;
+}
+.root.animationStart g rect:nth-child(3) {
+  animation: slideIn 2s ease-out;
+}
+.root.animationStart g rect:nth-child(4) {
+  animation: slideIn 2.5s ease-out;
+}
+.root.animationStart g rect:nth-child(5) {
+  animation: slideIn 2s ease-out;
+}

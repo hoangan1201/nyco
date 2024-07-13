@@ -1,0 +1,124 @@
+@import '../variables';
+@import '../opportunity-standard-variables.scss';
+
+
+.root {
+  display: block;
+  padding-top: 32px;
+  padding-bottom: 48px;
+  padding-left: 32px;
+  padding-right: 32px;
+  border-radius: 8px;
+  border: 2px #adb2b9 solid;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 70%;
+  height: 30%;
+}
+
+.title_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 20px;
+}
+
+.navbar_title {
+  color: #071f42;
+  font-size: 33px;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 600;
+}
+
+.section_container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.hamburger_menu {
+  display: none;
+}
+
+.section_container li {
+  list-style: none;
+  padding: 24px;
+  border-left: 4px solid rgba(74, 85, 120, 0.50);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.section_container li a {
+  color: #080707;
+  font-size: 20px;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 400;
+  text-decoration: none;
+}
+
+.section_container li.active {
+  border-left-color: #4a5578;
+}
+
+
+
+@media screen and (max-width: $breakpoint-mobile) {
+  .root {
+    width: calc(100% - 32px); // Ensuring it doesn't go out of the viewport
+    padding: 16px; 
+    border-radius: 6px;
+    border: 1px solid #adb2b9;
+    box-sizing: border-box; // Ensures padding and border are included in width calculation
+    align-items:normal;
+    justify-content: space-between;
+  }
+
+  .title_container {
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 8px;
+  }
+
+  .navbar_title {
+    font-size: 20px;
+    padding-right: 20px;
+  }
+
+  button {
+    margin-top: 10px;
+    padding-left: 10px;
+  }
+
+  .hamburger_menu {
+    display: block;
+    align-self: center;
+  }
+
+  .section_container {
+    display: none;
+    flex-direction: column;
+    padding: 0px 24px 16px 24px;
+  }
+
+  .section_container.show {
+    display: flex;
+  }
+
+  .section_container li {
+    padding: 20px 24px;
+    border-left: 3px solid rgba(74, 85, 120, 0.50);
+    gap: 7px;
+  }
+
+  .section_container li.active {
+    border-left-color: #4a5578;
+  }
+
+  .section_container li a {
+    font-size: 14px;
+  }
+
+
+}

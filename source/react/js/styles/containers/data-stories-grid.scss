@@ -1,0 +1,28 @@
+@import '../variables';
+
+.dataStoriesGrid {
+  display: flex;
+  flex-direction: column;
+  margin: 10rem 6rem 0;
+
+  .stories {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 10rem;
+    justify-content: left;
+  }
+
+  @media screen and (max-width: $breakpoint-medium) {
+    margin: 5rem 0 0;
+
+    .stories {
+      margin-top: 4rem;
+    }
+  }
+
+  .titleWrapper {
+    width: 100%;
+    max-width: 66rem;
+    margin-left: 0;
+  }
+}

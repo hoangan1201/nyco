@@ -1,0 +1,143 @@
+@import '../../opportunity-standard-variables';
+
+.formControl {
+  // Styles for form control container, as well as widely shared styles among form controls
+  
+  // TODO standardize newsletter form
+  margin-bottom: 2.5rem;
+  transition: all .3s;
+
+  label {
+    font-size: 18px;
+    font-family: 'Public Sans', sans-serif;
+    color: white;
+  }
+
+  .tooltipContainer {
+    svg g path {
+      stroke: white;
+    }
+  }
+
+  .labelContainer {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+
+    label {
+      margin-right: 1rem;
+
+      &.lightBlue {
+        color: $scale-light-4;
+      }
+    }
+
+    svg {
+      margin-top: 3px;
+    }
+  }
+
+  .controls {
+    display: flex;
+
+    .control {
+      flex: 1;
+      
+      margin: 0 .75rem;
+
+      &:first-child {
+        margin-left: 0;
+      }
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+
+  &.error {
+    border-left: 3px solid $yellow;
+    padding-left: 1rem;
+    margin-top: 1rem;
+  }
+
+  .errorLabel {
+    display: block;
+    color: $yellow;
+    margin-bottom: 1rem;
+    font-family: 'Public Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+
+    &.condensed {
+      margin-bottom: .3rem;
+    }
+  }
+
+  input[type="radio"] {
+    height: auto;
+    width: auto;
+    appearance: none;
+    margin: 0;
+    width: 2rem;
+    height: 2rem;
+    border: 2px solid $scale-default-3;
+    color: $scale-default-3;
+    border-radius: 50% !important;
+    padding: 0;
+    transition: background .3s;
+    cursor: pointer;
+    flex: none;
+
+    &:checked {
+      background-color: transparent;
+      border-color: blue;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      &::before {
+        content: "";
+        display: block;
+        border-radius: 50%;
+        width: 1.2rem;
+        height: 1.2rem;
+        background-color: blue;
+      }
+    }
+  }
+
+  input[type="checkbox"] {
+    height: auto;
+    width: auto;
+    appearance: none;
+    margin: 0;
+    width: 2rem;
+    height: 2rem;
+    border: 2px solid $scale-default-3;
+    color: $scale-default-3;
+    padding: 0;
+    transition: background .3s;
+    cursor: pointer;
+    flex: none;
+
+    &:checked {
+      background-color: blue;
+      border: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0;
+
+      &::before {
+        content: "";
+        display: block;
+        width: 100%;
+        height: 100%;
+        // Inline SVG for FeatherCheck
+        background-image: url('data:image/svg+xml;utf8,%3Csvg%20width%3D%2222%22%20height%3D%2222%22%20viewBox%3D%220%200%2022%2022%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Cpath%20d%3D%22M18.3334%205.5L8.25002%2015.5833L3.66669%2011%22%20stroke%3D%22%23071F42%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%0A%3C%2Fsvg%3E%0A');
+        background-size: contain;
+      }
+    }
+  }
+}
